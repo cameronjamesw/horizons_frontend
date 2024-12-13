@@ -1,72 +1,111 @@
 nvm install 16 && nvm use 16
 
-# Getting Started with Create React App
+# Horizons
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project goals
 
-## Available Scripts
+## Table of contents
+- [Horizons](#horizons)
+  * [Project goals](#project-goals)
+  * [Table of contents](#table-of-contents)
+  * [User stories](#user-stories)
+    + [Themes](#themes)
+    + [Epics](#epics)
+    + [User stories](#user-stories-1)
+  * [Agile development methodology](#agile-development-methodology)
+  * [Planning](#planning)
+    + [Mockups](#mockups)
+    + [Data models](#data-models)
+  * [Design](#design)
+    + [Colours](#colours)
+    + [Fonts](#fonts)
+  * [Features](#features)
+    + [Landing page with hero image](#landing-page-with-hero-image)
+    + [Registration form](#registration-form)
+    + [Sign-in form](#sign-in-form)
+    + [Header with welcome message, notifications menu and sign-out button](#header-with-welcome-message--notifications-menu-and-sign-out-button)
+    + [Bottom navbar](#bottom-navbar)
+    + [Drop-down notifications menu](#drop-down-notifications-menu)
+    + [Home page with family calendar](#home-page-with-family-calendar)
+    + [Add event and search buttons](#add-event-and-search-buttons)
+    + [Calendar events detail displayed below calendar](#calendar-events-detail-displayed-below-calendar)
+    + [Edit event and delete event buttons](#edit-event-and-delete-event-buttons)
+    + [Add event form](#add-event-form)
+    + [Edit event form](#edit-event-form)
+    + [Family contacts page](#family-contacts-page)
+    + [Add contacts and search contacts buttons](#add-contacts-and-search-contacts-buttons)
+    + [Add contact form](#add-contact-form)
+    + [Search contacts form](#search-contacts-form)
+    + [Edit contact and delete contact buttons](#edit-contact-and-delete-contact-buttons)
+    + [Edit contact form](#edit-contact-form)
+    + [Account page with My Tribe, My Profile, Change Password and Delete Account](#account-page-with-my-tribe--my-profile--change-password-and-delete-account)
+    + [My Tribe](#my-tribe)
+    + [My Profile](#my-profile)
+    + [Change password](#change-password)
+    + [Delete account](#delete-account)
+    + [Modal dialogs to confirm or cancel destructive actions](#modal-dialogs-to-confirm-or-cancel-destructive-actions)
+    + ['Single page mode' for medium and large screen sizes](#-single-page-mode--for-medium-and-large-screen-sizes)
+    + [Prompts for new users](#prompts-for-new-users)
+    + [Success messages](#success-messages)
+    + [Error messages](#error-messages)
+    + [Darkmode](#darkmode)
+    + [Re-use of components](#re-use-of-components)
+      - [`Avatar.js`](#-avatarjs-)
+      - [`ConfirmModal.js`](#-confirmmodaljs-)
+      - [`NotificationItem.js`](#-notificationitemjs-)
+      - [`Spinner.js`](#-spinnerjs-)
+      - [`Account.js`](#-accountjs-)
+      - [`TribeMember.js`](#-tribememberjs-)
+      - [`Contacts.js`](#-contactsjs-)
+      - [`Contact.js`](#-contactjs-)
+      - [`ContactDetailsForm.js`](#-contactdetailsformjs-)
+      - [`CalEvent.js`](#-caleventjs-)
+      - [`EventDetailsForm.js`](#-eventdetailsformjs-)
+    + [CRUD functionality](#crud-functionality)
+    + [Future improvements and features](#future-improvements-and-features)
+      - [Short term future improvements](#short-term-future-improvements)
+      - [Longer term future features](#longer-term-future-features)
+  * [Frameworks, libraries and dependencies](#frameworks--libraries-and-dependencies)
+    + [React-Calendar](#react-calendar)
+    + [React-Router-DOM](#react-router-dom)
+    + [ReactDOM](#reactdom)
+    + [Axios](#axios)
+    + [JWT Decode](#jwt-decode)
+    + [Tailwind CSS](#tailwind-css)
+    + [daisyUI](#daisyui)
+    + [React Bootstrap Icons](#react-bootstrap-icons)
+  * [React features used to enhance user experience](#react-features-used-to-enhance-user-experience)
+    + [Custom hooks](#custom-hooks)
+  * [Testing](#testing)
+    + [Manual testing](#manual-testing)
+    + [Validator testing](#validator-testing)
+    + [W3C CSS validator](#w3c-css-validator)
+    + [ESLint JavaScript validator](#eslint-javascript-validator)
+    + [WAVE web accessability testing](#wave-web-accessability-testing)
+    + [Lighthouse testing](#lighthouse-testing)
+    + [Resolved bugs](#resolved-bugs)
+    + [Unresolved bugs](#unresolved-bugs)
+  * [Deployment](#deployment)
+  * [Credits](#credits)
+    + [Code](#code)
+    + [Media](#media)
 
-In the project directory, you can run:
+## User Stories
 
-### `npm start`
+## Agile Development Methodology
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Planning
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Design
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Frameworks, Libraries & Dependencies
 
-### `npm run build`
+## React features to enhance user experience
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Testing
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Deployment
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Credits
