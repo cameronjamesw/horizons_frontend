@@ -2,3 +2,20 @@
     background-color: #222021;
     color: #fff;
 }
+
+.NavLink {
+    color: #fff;
+    font-size: 1.6rem;
+    padding: 7px;
+    vertical-align: middle;
+}
+
+.NavLink:hover {
+    cursor: pointer;
+    transition: color ease-in-out 0.3s;
+    color: #006200;
+}
+
+.Active {
+    color: #006200
+}
