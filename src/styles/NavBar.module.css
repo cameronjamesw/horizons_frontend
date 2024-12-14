@@ -1,0 +1,16 @@
+.NavBar {
+    background-color: #222021;
+    color: #fff;
+}
+
+.Nav {
+    color: #fff;
+}
+
+span {
+    color: #fff;
+}
+
+span:hover {
+    color: #006400;
+}
