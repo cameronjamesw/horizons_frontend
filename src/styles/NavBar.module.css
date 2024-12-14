@@ -1,10 +1,18 @@
 .NavBar {
-    background-color: #222021;
-    color: #fff;
+    background-color: #141414;
+    color: #C9A588;
 }
 
-.NavLink {
-    color: #fff;
+.Logo {
+    display: flex;
+}
+
+h1 {
+    color: #356933;
+}
+
+.NavLink, i {
+    color: #C9A588;
     font-size: 1.6rem;
     padding: 7px;
     vertical-align: middle;
@@ -13,9 +21,15 @@
 .NavLink:hover {
     cursor: pointer;
     transition: color ease-in-out 0.3s;
-    color: #006200;
+    color: #356933;
+}
+
+i:hover {
+    cursor: pointer;
+    transition: color ease-in-out 0.3s;
+    color: #356933;
 }
 
 .Active {
-    color: #006200
+    color: #356933
 }

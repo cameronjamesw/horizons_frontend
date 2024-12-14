@@ -11,8 +11,12 @@ const NavBar = () => {
             <Navbar className={styles.NavBar} expand="md" fixed='top' >
                 <Container>
                     <NavLink to="/">
-                        <Navbar.Brand href="#home"><img src={logo} alt='leaf logo' height={45} /></Navbar.Brand></NavLink>
-                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                        <Navbar.Brand href="#home">
+                            <div className={styles.Logo}><img src={logo} alt='leaf logo' height={50} />
+                            <h1>Horizons</h1></div>
+                            </Navbar.Brand>
+                    </NavLink>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse className="light" id="basic-navbar-nav">
                         <Nav className={`${styles.Nav} ml-auto text-right`}>
                             <NavLink exact className={styles.NavLink} activeClassName={styles.Active} to="/"><span><i className="fa-solid fa-house"></i> Home</span></NavLink>
