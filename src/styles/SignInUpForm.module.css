@@ -8,23 +8,33 @@
 
 .Input {
     background: #141414;
-    border: 1px solid #f0f1f9;
+    border: 1px solid #D7A17D;
     box-sizing: border-box;
     border-radius: 2px;
-    color: #7177a1;
+    color: #fff;
     text-align: center;
     padding: 10px;
+}
+
+.Input:hover {
+    border: #fff 2px solid;
+}
+
+.Input:focus {
+    background: #000;
+    color: #fff;
 }
 
 .Header {
     font-style: normal;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 25px;
     line-height: 19px;
     text-align: center;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #2142b2;
+    padding-bottom: 20px;
+    color: #D7a17D;
 }
 
 .Link {
@@ -32,10 +42,15 @@
     text-align: center;
     display: block;
     margin: auto;
+    color: #D7A17D;
+}
+
+.Link:hover {
+    color: #356933;
 }
 
 .Link span {
-    color: #ff9254;
+    color: #356933;
 }
 
 .Container {

@@ -22,7 +22,7 @@ const SignUpForm = () => {
                             <Form.Label className="d-none">Username</Form.Label>
                             <Form.Control 
                             type="text" 
-                            placeholder="Enter username"
+                            placeholder="Enter Username"
                             name="username"
                             className={styles.Input} />
                         </Form.Group>
@@ -46,7 +46,7 @@ const SignUpForm = () => {
                         </Form.Group>
 
 
-                        <Button variant="primary" type="submit">
+                        <Button variant="success" type="submit">
                             Sign Up
                         </Button>
                     </Form>
