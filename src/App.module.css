@@ -63,6 +63,10 @@ i:hover {
   color: #006200;
 }
 
+.Pointer:hover {
+  cursor: pointer;
+}
+
 /* scrollbar */
 *::-webkit-scrollbar {
   width: 5px;

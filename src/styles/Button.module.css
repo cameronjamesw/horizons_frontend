@@ -67,3 +67,13 @@
     background-color: #2ed9ff;
     color: #2142b2;
   }
+
+  .Green {
+    background-color: #356933;
+    color: #ffffff;
+  }
+
+  .Green:Hover {
+    background-color: #06402B;
+    color: #ffffff;
+  }
