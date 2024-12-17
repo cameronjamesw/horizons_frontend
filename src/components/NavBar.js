@@ -91,6 +91,7 @@ const NavBar = () => {
                     </NavLink>
                     {currentUser && addPostIcon}
                     <Navbar.Toggle
+                    className={styles.NavBurger}
                     ref={ref} 
                     onClick={() => setExpanded(!expanded)} 
                     aria-controls="basic-navbar-nav" />

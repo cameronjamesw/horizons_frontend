@@ -30,6 +30,10 @@ i:hover {
     color: #356933;
 }
 
+.NavBurger {
+    background-color: #C9A588;
+}
+
 .Active {
     color: #356933
 }
