@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Form, Alert, Button, Col, Row, Image, Container } from "react-bootstrap/Form";
+import { Form, Alert, Button, Col, Row, Image, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import styles from "../../styles/SignInUpForm.module.css";
@@ -9,7 +9,7 @@ import SignInImg from "../../assets/SignInImg.webp"
 import axios from "axios";
 
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { useSetCurrentUser } from "../../contexts/CurrentUserContexf";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
 function SignInForm() {
     const setCurrentUser = useSetCurrentUser();

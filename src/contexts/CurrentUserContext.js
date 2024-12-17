@@ -4,8 +4,8 @@ import axios from 'axios';
 export const currentUserContext = createContext();
 export const setCurrentUserContext = createContext();
 
-export const useCurrentUser = useContext(currentUserContext);
-export const useSetCurrentUser = useContext(setCurrentUserContext);
+export const useCurrentUser = () => useContext(currentUserContext);
+export const useSetCurrentUser = () => useContext(setCurrentUserContext);
 
 export const CurrentUserProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null)
