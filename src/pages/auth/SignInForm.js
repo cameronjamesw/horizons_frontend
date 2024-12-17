@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
@@ -15,8 +15,11 @@ import appStyles from "../../App.module.css";
 import SignInImg from "../../assets/SignInImg.webp"
 import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { setCurrentUserContext } from "../../App";
 
 function SignInForm() {
+    const setCurrentUser = useContext(setCurrentUserContext)
+
     const [signInData, setSignInData] = useState({
         username: "",
         password: ""
@@ -38,8 +41,9 @@ function SignInForm() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await axios.post('/dj-rest-auth/login/', signInData)
-            history.push('/')
+            const {data} = await axios.post('/dj-rest-auth/login/', signInData);
+            setCurrentUser(data.user);
+            history.push('/');
         } catch (err) {
             setErrors(err.response?.data)
         }
