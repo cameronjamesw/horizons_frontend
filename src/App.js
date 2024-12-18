@@ -7,6 +7,7 @@ import SignUpForm from './pages/auth/SignUpForm';
 import SignInForm from './pages/auth/SignInForm';
 import PostCreateForm from './pages/posts/PostCreateForm';
 import PostPage from './pages/posts/PostPage';
+import CreateCategoryForm from './pages/categories/CreateCategoryForm';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/posts/create/" render={() => <PostCreateForm /> } />
           <Route exact path="/posts/:id/" render={() => <PostPage /> } />
+          <Route exact path="/categories/create/" render={() => <CreateCategoryForm />}/>
           <Route render={() => <h1>Page not found..</h1>} />
         </Switch>
       </Container>

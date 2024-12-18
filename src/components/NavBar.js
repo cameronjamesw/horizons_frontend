@@ -8,7 +8,6 @@ import Avatar from './Avatar'
 import axios from 'axios'
 import useClickOutsideToggle from '../hooks/useClickOutsideToggle'
 
-
 const NavBar = () => {
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
@@ -34,6 +33,17 @@ const NavBar = () => {
             </NavLink>
         </>
     )
+
+    const addCategoryIcon = [
+        <>
+            <NavLink
+                className={styles.NavLink}
+                activeClassName={styles.Active}
+                to="/categories/create">
+                <span><i className="fa-solid fa-layer-group"></i> Create Category</span>
+            </NavLink>
+        </>
+    ]
 
     const loggedInIcons = <>
         <NavLink
@@ -90,6 +100,7 @@ const NavBar = () => {
                         </Navbar.Brand>
                     </NavLink>
                     {currentUser && addPostIcon}
+                    {currentUser?.is_admin && addCategoryIcon}
                     <Navbar.Toggle
                     className={styles.NavBurger}
                     ref={ref} 

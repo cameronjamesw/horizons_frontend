@@ -17,7 +17,8 @@ export const CurrentUserProvider = ({ children }) => {
     const handleMount = async () => {
         try {
             const { data } = await axiosRes.get('/dj-rest-auth/user/')
-            setCurrentUser(data)
+            setCurrentUser(data);
+            console.log(data)
         } catch (err) {
             console.log(err)
         }
@@ -51,12 +52,12 @@ export const CurrentUserProvider = ({ children }) => {
         axiosRes.interceptors.response.use(
             (response) => response,
             async (err) => {
-                if (err.response?.status === 401){
+                if (err.response?.status === 401) {
                     try {
                         await axios.post('/dj-rest-auth/token/refresh/')
                     } catch (err) {
                         setCurrentUser(prevCurrentUser => {
-                            if (prevCurrentUser){
+                            if (prevCurrentUser) {
                                 history.push('/signin')
                             }
                             return null
