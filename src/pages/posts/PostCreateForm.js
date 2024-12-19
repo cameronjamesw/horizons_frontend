@@ -15,16 +15,13 @@ import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
 import { Alert, Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import CategoryList from "../../components/CategoryList";
 
 function PostCreateForm() {
 
   const [errors, setErrors] = useState({});
 
   const [categories, setCategories] = useState();
-
-  const categoriesList = categories?.map((category, idx) => {
-    return <option key={idx}>{category.name}</option>
-  })
 
   const [formDetail, setFormDetail] = useState({
     title: "",
@@ -56,25 +53,12 @@ function PostCreateForm() {
   };
 
   const handleCategoryChange = (event) => {
+    console.log(event)
     setFormDetail({
       ...formDetail,
       [event.target.name]: event.target.value
     })
   }
-
-  useEffect(() => {
-    const handleMount = async () => {
-      try {
-        const [{ data: categories }] = await Promise.all([
-          axiosReq.get('/categories/')
-        ])
-        setCategories(categories.results)
-      } catch (err) {
-        console.log(err)
-      }
-    }
-    handleMount();
-  }, [])
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -143,7 +127,7 @@ function PostCreateForm() {
             value={category}
             onChange={handleCategoryChange} >
             <option placeholder="Select Category"></option>
-            {categoriesList}
+            < CategoryList />
           </Form.Control>
         </Form.Group>
         {errors?.categories?.map((message, idx) => (
