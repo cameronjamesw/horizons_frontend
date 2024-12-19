@@ -1,0 +1,44 @@
+.Post {
+    background-color: #141414;
+    border: 1px solid #C9a588;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  
+  .Post figure,
+  h5 {
+    margin: 0 0;
+  }
+  
+  .Heart {
+    color: #f85032;
+  }
+  
+  .Heart:hover {
+    color: #2142b2;
+  }
+  
+  .HeartOutline:hover {
+    color: #f85032;
+  }
+
+  .Star {
+    color: #FFD700
+  }
+
+  .Star:hover {
+    color: #B59410
+  }
+
+  .Star:focus {
+    color: #B59410
+  }
+
+  .StarOutline:hover {
+    color: #FFD700
+  }
+
+  .StarOutline:focus {
+    color: #B59410
+  }
