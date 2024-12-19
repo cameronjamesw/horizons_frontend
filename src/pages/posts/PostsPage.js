@@ -46,7 +46,7 @@ function PostsPage({message, filter=""}) {
               ))
             ) : (
               <Container className={appStyles.Content}>
-                <Asset src={NoResults} message={message} />
+                <Asset src={NoResults} height={250} message={message} />
               </Container>
             )}
           </>
