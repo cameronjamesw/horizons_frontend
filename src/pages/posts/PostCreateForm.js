@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -20,18 +20,23 @@ function PostCreateForm() {
 
   const [errors, setErrors] = useState({});
 
+  const [categories, setCategories] = useState();
+
+  const categoriesList = categories?.map((category, idx) => {
+    return <option key={idx}>{category.name}</option>
+  })
+
   const [formDetail, setFormDetail] = useState({
     title: "",
+    category: "",
     content: "",
     image: ""
   })
 
-  const { title, content, image } = formDetail;
+  const { title, category, content, image } = formDetail;
 
   const imageInput = useRef(null);
   const history = useHistory();
-
-
 
   const handleChange = (e) => {
     setFormDetail({
@@ -50,11 +55,54 @@ function PostCreateForm() {
     }
   };
 
+  const handleCategoryChange = (event) => {
+    setFormDetail({
+      ...formDetail,
+      [event.target.name]: event.target.value
+    })
+  }
+
+  useEffect(() => {
+    const handleMount = async () => {
+      try {
+        const [{ data: categories }] = await Promise.all([
+          axiosReq.get('/categories/')
+        ])
+        setCategories(categories.results)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    handleMount();
+  }, [])
+
   const handleSubmit = async (event) => {
     event.preventDefault();
+    let categoriesList = []
+    categories?.map((category) => {
+      return categoriesList.push(category.name)
+    })
+    categoriesList.reverse()
+
+    const newIndex = getIndex(categoriesList, category)
+
+    function getIndex(categoriesList, category) {
+      if (categoriesList.includes(category)) {
+        console.log(true)
+        let index = categoriesList.indexOf(category) + 1
+        return index.toString()
+      }
+      return ""
+    }
+
+    
+
+    console.log(newIndex)
+
     const formData = new FormData();
 
     formData.append("title", title);
+    formData.append("category", newIndex);
     formData.append("content", content);
     formData.append("image", imageInput.current.files[0]);
 
@@ -82,6 +130,23 @@ function PostCreateForm() {
             onChange={handleChange} />
         </Form.Group>
         {errors?.title?.map((message, idx) => (
+          <Alert variant="warning" key={idx}>
+            {message}
+          </Alert>
+        ))}
+
+        <Form.Group controlId="category">
+          <Form.Label>Category</Form.Label>
+          <Form.Control
+            as="select"
+            name="category"
+            value={category}
+            onChange={handleCategoryChange} >
+            <option placeholder="Select Category"></option>
+            {categoriesList}
+          </Form.Control>
+        </Form.Group>
+        {errors?.categories?.map((message, idx) => (
           <Alert variant="warning" key={idx}>
             {message}
           </Alert>
@@ -145,7 +210,7 @@ function PostCreateForm() {
                 </>
               ) : (
                 <Form.Label
-                className={`${appStyles.Pointer} d-flex justify-content-center`}
+                  className={`${appStyles.Pointer} d-flex justify-content-center`}
                   htmlFor="image-upload"
                 >
                   <Asset
