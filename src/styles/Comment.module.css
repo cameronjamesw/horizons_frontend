@@ -1,0 +1,21 @@
+.Owner {
+    font-weight: bold;
+    color: #356933;
+    margin-right: 8px;
+  }
+  
+  .Date {
+    font-weight: lighter;
+    color: #c1c1c5;
+  }
+
+  .Media {
+    background-color: #3d3d3d;
+    border-bottom: 2px #356933 solid;
+    padding-top: 10px;
+  }
+
+  .Link:hover {
+    text-decoration: underline;
+    text-decoration-color: #356933;
+  }
