@@ -15,6 +15,7 @@ import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
 import { Alert, Image } from "react-bootstrap";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import CategoryList from "../../components/CategoryList";
 
 function PostEditForm() {
 
@@ -43,10 +44,10 @@ function PostEditForm() {
         const handleMount = async () => {
           try {
             const { data } = await axiosReq.get(`/posts/${id}/`);
-            const { title, category_name, content, image, is_owner } = data;
-            console.log(data);
+            const { title, category, content, image, is_owner } = data;
+            console.log(title, category, content, image, is_owner);
     
-            is_owner ? setFormDetail({ title, category_name, content, image }) : history.push("/");
+            is_owner ? setFormDetail({ title, category, content, image }) : history.push("/");
           } catch (err) {
             console.log(err);
           }
@@ -74,10 +75,10 @@ function PostEditForm() {
 
     const handleCategoryChange = (event) => {
         setFormDetail({
-            ...formDetail,
-            [event.target.name]: event.target.value
+          ...formDetail,
+          category : event.target.value,
         })
-    }
+      }
 
     useEffect(() => {
         const handleMount = async () => {
@@ -95,27 +96,10 @@ function PostEditForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        let categoriesList = []
-        categories?.map((category) => {
-            return categoriesList.push(category.name)
-        })
-        categoriesList.reverse()
-
-        const newIndex = getIndex(categoriesList, category)
-
-        function getIndex(categoriesList, category) {
-            if (categoriesList.includes(category)) {
-                console.log(true)
-                let index = categoriesList.indexOf(category) + 1
-                return index.toString()
-            }
-            return ""
-        }
-
         const formData = new FormData();
 
         formData.append("title", title);
-        formData.append("category", newIndex);
+        formData.append("category", category);
         formData.append("content", content);
 
         if (imageInput?.current?.files[0]) {
@@ -155,11 +139,15 @@ function PostEditForm() {
                     <Form.Label>Category</Form.Label>
                     <Form.Control
                         as="select"
-                        name="category"
                         value={category}
-                        onChange={handleCategoryChange} >
-                        <option placeholder="Select Category"></option>
-                        {categoriesList}
+                        name="category"
+                        onChange={handleCategoryChange}>
+                        <option value="" disabled>Select Category</option>
+                        {categories?.map((categoryObj) => (
+                            <option key={categoryObj.id} value={categoryObj.id}>
+                                {categoryObj.name}
+                            </option>
+                        ))}
                     </Form.Control>
                 </Form.Group>
                 {errors?.categories?.map((message, idx) => (
