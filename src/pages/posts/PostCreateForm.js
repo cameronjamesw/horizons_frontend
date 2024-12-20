@@ -53,40 +53,18 @@ function PostCreateForm() {
   };
 
   const handleCategoryChange = (event) => {
-    console.log(event)
     setFormDetail({
       ...formDetail,
-      [event.target.name]: event.target.value
+      category : event.target.value,
     })
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    let categoriesList = []
-    categories?.map((category) => {
-      return categoriesList.push(category.name)
-    })
-    categoriesList.reverse()
-
-    const newIndex = getIndex(categoriesList, category)
-
-    function getIndex(categoriesList, category) {
-      if (categoriesList.includes(category)) {
-        console.log(true)
-        let index = categoriesList.indexOf(category) + 1
-        return index.toString()
-      }
-      return ""
-    }
-
-    
-
-    console.log(newIndex)
-
     const formData = new FormData();
 
     formData.append("title", title);
-    formData.append("category", newIndex);
+    formData.append("category", category);
     formData.append("content", content);
     formData.append("image", imageInput.current.files[0]);
 
@@ -124,7 +102,6 @@ function PostCreateForm() {
           <Form.Control
             as="select"
             name="category"
-            value={category}
             onChange={handleCategoryChange} >
             <option placeholder="Select Category"></option>
             < CategoryList />

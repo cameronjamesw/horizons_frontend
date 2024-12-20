@@ -6,7 +6,7 @@ const CategoryList = () => {
     const [categories, setCategories] = useState();
 
     const categoriesList = categories?.map((category) => {
-        return <option key={category.id}>{category.id} - {category.name}</option>
+        return <option value={category.id} key={category.id}>{category.id} - {category.name}</option>
     })
 
     
