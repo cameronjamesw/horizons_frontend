@@ -15,7 +15,6 @@ import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
 import { Alert, Image } from "react-bootstrap";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
-import CategoryList from "../../components/CategoryList";
 
 function PostEditForm() {
 
