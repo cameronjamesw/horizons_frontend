@@ -1,0 +1,27 @@
+.Form {
+    border: none;
+    color: #fff;
+    border-bottom: 2px #356933 solid;
+    background-color: #3d3d3d;
+  }
+
+  .Form:focus {
+    background-color: #3d3d3d;
+    color: #fff;
+  }
+  
+  .Button {
+    border: none;
+    background-color: #356933;
+    color: #fff;
+    border-radius: 100px;
+    padding: 4px 10px;
+    min-width: 75px;
+    margin: 5px;
+  }
+  
+  .Button:hover {
+    cursor: pointer;
+    background-color: #06402B;
+    color: #fff;
+  }
