@@ -29,14 +29,14 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
           onClick={handleEdit}
           aria-label="edit"
         >
-          <i className="fas fa-edit" />
+          <i className={`${styles.EditIcon} fas fa-edit`} />
         </Dropdown.Item>
         <Dropdown.Item
-          className={styles.DropdownItem}
+          className={`${styles.DropdownItem}`}
           onClick={handleDelete}
           aria-label="delete"
         >
-          <i className="fas fa-trash-alt" />
+          <i className={`${styles.DeleteIcon} fas fa-trash-alt`} />
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>

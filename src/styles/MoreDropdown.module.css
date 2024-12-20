@@ -10,3 +10,11 @@
     right: 0;
     z-index: 99;
   }
+
+  .DeleteIcon, .DeleteIcon:hover {
+    color: red;
+  }
+
+  .EditIcon {
+    color: #356933;
+  }

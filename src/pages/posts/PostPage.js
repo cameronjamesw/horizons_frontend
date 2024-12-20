@@ -5,13 +5,13 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 import appStyles from "../../App.module.css";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
+import Comment from "../comments/Comment";
 
 import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import Comment from "../comments/Comment";
 
 function PostPage() {
   const { id } = useParams();
@@ -36,8 +36,7 @@ function PostPage() {
     };
 
     handleMount();
-  }, [id])
-
+  }, [id]);
 
   return (
     <Row className="h-100">
@@ -58,7 +57,12 @@ function PostPage() {
           ) : null}
           {comments.results.length ? (
             comments.results.map((comment) => (
-              <Comment key={comment.id} {...comment} />
+              <Comment
+                key={comment.id}
+                {...comment}
+                setPost={setPost}
+                setComments={setComments}
+              />
             ))
           ) : currentUser ? (
             <span>No comments yet, be the first to comment!</span>
