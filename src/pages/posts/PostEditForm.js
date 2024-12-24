@@ -22,10 +22,6 @@ function PostEditForm() {
 
     const [categories, setCategories] = useState();
 
-    const categoriesList = categories?.map((category, idx) => {
-        return <option key={idx}>{category.name}</option>
-    })
-
     const [formDetail, setFormDetail] = useState({
         title: "",
         category: "",

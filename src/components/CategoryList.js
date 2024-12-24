@@ -21,7 +21,7 @@ const CategoryList = () => {
                 const catObject = {};
 
                 categories.results.map((category, idx) => {
-                    catObject[idx] = [category.name, category.id]
+                    return catObject[idx] = [category.name, category.id]
                 })
 
                 console.log(catObject);

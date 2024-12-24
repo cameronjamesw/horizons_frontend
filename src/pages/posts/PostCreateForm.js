@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -20,9 +20,6 @@ import CategoryList from "../../components/CategoryList";
 function PostCreateForm() {
 
   const [errors, setErrors] = useState({});
-
-  const [categories, setCategories] = useState();
-
   const [formDetail, setFormDetail] = useState({
     title: "",
     category: "",
