@@ -119,7 +119,7 @@ const Post = (props) => {
                         {owner}   
                     </Link>
                     { category ? (
-                        <><i class="fa-solid fa-list" /> {category_name}</>
+                        <span><i class="fa-solid fa-list"/> {category_name}</span>
                     ) : ( "" )
                     }
                     <div className='d-flex align-items-center'>
