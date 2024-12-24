@@ -114,12 +114,12 @@ const Post = (props) => {
         <Card className={styles.Post}>
             <Card.Body>
                 <Media className='align-items-center justify-content-between'>
-                    <Link to={`/profiles/${profile_id}/`}>
+                    <Link to={`/profiles/${profile_id}/`} className={`${styles.Link}`}>
                         <Avatar src={profile_image} height={55} />
                         {owner}   
                     </Link>
                     { category ? (
-                        <span><i class="fa-solid fa-list"/> {category_name}</span>
+                        <span><i class={`${styles.Cat} fa-solid fa-list`}/> {category_name}</span>
                     ) : ( "" )
                     }
                     <div className='d-flex align-items-center'>
@@ -132,7 +132,7 @@ const Post = (props) => {
                         )}
                         {favourite_id ? (
                             <span onClick={handleUnfavourite}>
-                                <i className={`fa-solid fa-star ${styles.StarOutline}`} />
+                                <i className={`fa-solid fa-star ${styles.Star}`} />
                             </span>
                         ) : currentUser ? (
                             <span onClick={handleFavourite}>
@@ -145,7 +145,7 @@ const Post = (props) => {
                 </Media>
             </Card.Body>
             <Link to={`/posts/${id}/`}>
-                <Card.Img src={image} alt={title} />
+                <Card.Img src={image} alt={title} className={`${styles.Image}`} />
             </Link>
             <Card.Body>
                 {title && <Card.Title className='text-center'>{title}</Card.Title>}

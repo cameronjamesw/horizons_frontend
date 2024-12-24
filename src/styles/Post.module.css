@@ -16,7 +16,7 @@
   }
   
   .Heart:hover {
-    color: #2142b2;
+    color: #8B0000;
   }
   
   .HeartOutline:hover {
@@ -41,4 +41,20 @@
 
   .StarOutline:focus {
     color: #B59410
+  }
+
+  .CategoryIcon:hover {
+    color: #C9a588;
+    cursor: auto;
+  }
+
+  .Link:hover {
+    color: #356933;
+    text-decoration: underline;
+    text-decoration-color: #356933;
+  }
+
+  .Image {
+    min-height: 50vh;
+    max-height: 50vh;
   }
