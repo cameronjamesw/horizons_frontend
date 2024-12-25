@@ -63,7 +63,10 @@ function ProfilePage() {
                     />
                 </Col>
                 <Col lg={6}>
-                    <h3 className="m-2">{profile?.owner}</h3>
+                    <h3 className="m-2">{profile?.owner} {(profile?.name ? (
+                        <> | {profile?.name} </>) : (
+                        <></>
+                    ))}</h3>
                     <Row className="justify-content-center no-gutters">
                         <Col xs={3} className="my-2">
                             <div>{profile?.posts_count}</div>
@@ -78,7 +81,7 @@ function ProfilePage() {
                             <div>following</div>
                         </Col>
                         {is_owner && <Col xs={3} className="my-2">
-                            <Link className={styles.Link} to={() => {}}>
+                            <Link className={styles.Link} to={() => { }}>
                                 <div>{profile?.favourites_count}</div>
                                 <div>favourited</div>
                             </Link>
@@ -106,7 +109,6 @@ function ProfilePage() {
                             </Button>
                         ))}
                 </Col>
-                {profile?.content && <Col className="p-3">{profile.content}</Col>}
             </Row>
         </>
     );
@@ -114,34 +116,49 @@ function ProfilePage() {
     const profileDetails = (
         <>
             < hr />
-            <p className="text-center">Profile Owner's Details</p>
+            <Row noGutters className="px-3 text-center">
+                <Col sm={5}>
+                    <p className="text-left">Island Name:</p>
+                    <p className={styles.DetailField}>{profile?.island_name}</p>
+                </Col>
+                <Col sm={5} className="ml-auto">
+                    <p className="text-left">Friend Code:</p>
+                    <p className={styles.DetailField}>{profile?.friend_code}</p>
+                </Col>
+            </Row>
+            <Row noGutters className="px-3 text-center">
+                <Col>
+                    <div className="text-left">Bio:</div>
+                    <div className={styles.DetailFieldBio}>{profile?.bio}</div>
+                </Col>
+            </Row>
         </>
     )
 
     const mainProfilePosts = (
         <>
-          <hr />
-          <p className="text-center">{profile?.owner}'s posts</p>
-          <hr />
-          {profilePosts.results.length ? (
-            <InfiniteScroll
-              children={profilePosts.results.map((post) => (
-                <Post key={post.id} {...post} setPosts={setProfilePosts} />
-              ))}
-              dataLength={profilePosts.results.length}
-              loader={<Asset spinner />}
-              hasMore={!!profilePosts.next}
-              next={() => fetchMoreData(profilePosts, setProfilePosts)}
-            />
-          ) : (
-            <Asset
-              src={NoResults}
-              height={250}
-              message={`No results found, ${profile?.owner} hasn't posted yet.`}
-            />
-          )}
+            <hr />
+            <p className="text-center">{profile?.owner}'s posts</p>
+            <hr />
+            {profilePosts.results.length ? (
+                <InfiniteScroll
+                    children={profilePosts.results.map((post) => (
+                        <Post key={post.id} {...post} setPosts={setProfilePosts} />
+                    ))}
+                    dataLength={profilePosts.results.length}
+                    loader={<Asset spinner />}
+                    hasMore={!!profilePosts.next}
+                    next={() => fetchMoreData(profilePosts, setProfilePosts)}
+                />
+            ) : (
+                <Asset
+                    src={NoResults}
+                    height={250}
+                    message={`No results found, ${profile?.owner} hasn't posted yet.`}
+                />
+            )}
         </>
-      );
+    );
 
     return (
         <Row>
@@ -151,7 +168,12 @@ function ProfilePage() {
                     {hasLoaded ? (
                         <>
                             {mainProfile}
-                            {profileDetails}
+                            {(profile?.island_name
+                                && profile?.friend_code ? (
+                                profileDetails) : (
+                                <></>
+                            )
+                            )}
                             {mainProfilePosts}
                         </>
                     ) : (

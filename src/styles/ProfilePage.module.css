@@ -20,3 +20,19 @@
     color: #356933;
     cursor: pointer;
 }
+
+.DetailField {
+    background-color: #141414;
+    border: #c9a588 2px solid;
+    border-radius: 10px;
+    min-height: 20px;
+}
+
+.DetailFieldBio {
+    background-color: #141414;
+    border: #c9a588 2px solid;
+    border-radius: 10px;
+    margin: 10px;
+    width: 100%;
+    min-height: 150px;
+}
