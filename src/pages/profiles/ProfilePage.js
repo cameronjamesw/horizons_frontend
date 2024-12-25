@@ -25,7 +25,7 @@ function ProfilePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
     const currentUser = useCurrentUser();
     const { id } = useParams();
-    const setProfileData = useSetProfileData();
+    const {setProfileData, handleFollow} = useSetProfileData();
     const { pageProfile } = useProfileData();
     const [profile] = pageProfile.results;
     const is_owner = currentUser?.username === profile?.owner;
@@ -95,7 +95,7 @@ function ProfilePage() {
                         !is_owner &&
                         (profile?.following_id ? (
                             <Button
-                                className={`${btnStyles.Button} ${btnStyles.Green}`}
+                                className={`${btnStyles.Button} ${btnStyles.DarkGreen}`}
                                 onClick={() => { }}
                             >
                                 unfollow
@@ -103,7 +103,7 @@ function ProfilePage() {
                         ) : (
                             <Button
                                 className={`${btnStyles.Button} ${btnStyles.Green}`}
-                                onClick={() => { }}
+                                onClick={() => handleFollow(profile)}
                             >
                                 follow
                             </Button>

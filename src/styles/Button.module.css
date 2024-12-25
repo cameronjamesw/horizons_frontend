@@ -15,24 +15,27 @@
   cursor: pointer;
 }
 
-.Button:hover:active {
-  background-color: #2142b2 !important;
-}
-
-.Button:active {
-  background-color: #2142b2 !important;
-}
-
 .Button:focus {
-  background-color: #356933;
+  background-color: #06402B;
+  color: #fff;
 }
 
 .Green {
   background-color: #356933;
-  color: #ffffff;
+  color: #fff;
 }
 
 .Green:Hover {
+  background-color: #556B2F;
+  color: #fff;
+}
+
+.DarkGreen {
   background-color: #06402B;
-  color: #ffffff;
+  color: #fff
+}
+
+.DarkGreen:hover {
+  background-color: #556B2F;
+  color: #fff;
 }
