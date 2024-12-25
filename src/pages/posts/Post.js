@@ -62,7 +62,6 @@ const Post = (props) => {
     };
 
     const handleFavourite = async () => {
-        console.log("Clicked")
         try {
             const { data } = await axiosRes.post("/favourites/", { post: id });
             setPosts((prevPosts) => ({
