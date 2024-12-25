@@ -66,7 +66,7 @@ function ProfilePage() {
                 </Col>
                 <Col lg={6}>
                     <h3 className="m-2">{profile?.owner} {(profile?.name ? (
-                        <> | {profile?.name} </>) : (
+                        <> | Name: {profile?.name} </>) : (
                         <></>
                     ))}</h3>
                     <Row className="justify-content-center no-gutters">
@@ -128,7 +128,7 @@ function ProfilePage() {
                     <p className={styles.DetailField}>{profile?.friend_code}</p>
                 </Col>
             </Row>
-            <Row noGutters className="px-3 text-center">
+            <Row noGutters className="px-3">
                 <Col>
                     <div className="text-left">Bio:</div>
                     <div className={styles.DetailFieldBio}>{profile?.bio}</div>
@@ -140,7 +140,7 @@ function ProfilePage() {
     const mainProfilePosts = (
         <>
             <hr />
-            <p className="text-center">{profile?.owner}'s posts</p>
+            <p className={`${styles.PostsText} text-left`}>{profile?.owner}'s posts:</p>
             <hr />
             {profilePosts.results.length ? (
                 <InfiniteScroll
