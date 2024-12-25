@@ -17,6 +17,7 @@
 
 .Button:focus {
   background-color: #06402B;
+  border-color: transparent;
   color: #fff;
 }
 
@@ -30,6 +31,11 @@
   color: #fff;
 }
 
+.Green:Focus {
+  color: #fff;
+  border-color: transparent;
+}
+
 .DarkGreen {
   background-color: #06402B;
   color: #fff
@@ -38,4 +44,9 @@
 .DarkGreen:hover {
   background-color: #556B2F;
   color: #fff;
+}
+
+.DarkGreen:Focus {
+  color: #fff;
+  border-color: transparent;
 }
