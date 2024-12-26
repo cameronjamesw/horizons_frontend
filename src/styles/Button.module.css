@@ -9,6 +9,20 @@
   min-width: 75px;
 }
 
+.CatButton {
+  border-radius: 25px;
+  border-color: transparent;
+  padding: 4px 10px;
+  margin-left: 2px;
+  margin-right: 2px;
+  min-width: 75px;
+}
+
+.CatButton:Focus {
+  background-color: #556B2F;
+  border-color: transparent;
+}
+
 .Button:hover {
   opacity: 0.8;
   border-color: transparent;

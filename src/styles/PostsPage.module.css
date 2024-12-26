@@ -24,3 +24,19 @@
     cursor: default;
     color: #cfced3;
   }
+
+  .DropDown {
+    background-color: #141414;
+    color: #fff;
+    border: #C9A588 2px solid;
+  }
+
+  .DropDownItem {
+    background-color: #141414;
+    color: #fff;
+  }
+
+  .DropDownItem:Hover {
+    background-color: #000;
+    color: #356933;
+  }
