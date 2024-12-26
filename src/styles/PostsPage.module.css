@@ -37,6 +37,10 @@
   }
 
   .DropDownItem:Hover {
-    background-color: #000;
-    color: #356933;
+    background-color: #356933;
+    color: #fff;
+  }
+
+  .Link, .Link:Hover {
+    color: #fff
   }

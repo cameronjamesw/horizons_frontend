@@ -91,16 +91,18 @@ function PostsPage({ message, filter = "" }) {
 
             <Dropdown.Menu className={styles.DropDown}>
               {categories?.map((categoryObj) => (
-                  <Dropdown.Item
-                    className={styles.DropDownItem}
-                    as={"button"}
-                    key={categoryObj.id}
-                    value={categoryObj.id}
-                    onSelect={() => setCategory(categoryObj)}>
-                      <Link to={`/categories/${categoryObj.id}/`}>
+                <Dropdown.Item
+                  className={styles.DropDownItem}
+                  as={"button"}
+                  key={categoryObj.id}
+                  value={categoryObj.id}
+                  onSelect={() => setCategory(categoryObj)}>
+                  <Link
+                    to={`/categories/${categoryObj.id}/`}
+                    className={styles.Link}>
                     {categoryObj.name}
-                    </Link>
-                  </Dropdown.Item>
+                  </Link>
+                </Dropdown.Item>
               ))}
             </Dropdown.Menu>
           </Dropdown>
