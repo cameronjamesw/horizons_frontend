@@ -7,7 +7,7 @@ import Avatar from '../../components/Avatar';
 import { axiosRes } from '../../api/axiosDefaults';
 import { MoreDropdown } from '../../components/MoreDropdown';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-import { useProfileData, useSetProfileData } from '../../contexts/ProfileDataContext';
+import { useSetProfileData } from '../../contexts/ProfileDataContext';
 import { favouriteHelper, unfavouriteHelper } from '../../utils/utils';
 
 const Post = (props) => {
