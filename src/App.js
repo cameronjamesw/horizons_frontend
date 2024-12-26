@@ -15,10 +15,13 @@ import ProfilePage from './pages/profiles/ProfilePage';
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
+import { useCategoryContext } from './contexts/CategoryContext';
 
 function App() {
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
+  const category = useCategoryContext();
+  console.log(category);
 
   return (
     <div className={styles.App}>
@@ -51,6 +54,13 @@ function App() {
               <PostsPage
                 message="No results, please favourite a post.."
                 filter={`favourites__owner__profile=${profile_id}&`} />} />
+          <Route
+            exact
+            path="/categories/:id/"
+            render={() =>
+              <PostsPage
+                message="No results, there are no posts in this category.."
+                filter={`category=${category.id}&`} />} />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/posts/create/" render={() => <PostCreateForm />} />

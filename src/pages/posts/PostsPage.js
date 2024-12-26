@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsPage.module.css";
 import btnStyles from "../../styles/Button.module.css"
-import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
 import Post from "./Post";
@@ -18,12 +18,14 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import { Dropdown } from "react-bootstrap";
+import { useSetCategoryContext } from "../../contexts/CategoryContext";
 
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
   const [categories, setCategories] = useState();
+  const setCategory = useSetCategoryContext();
 
   const [query, setQuery] = useState("");
 
@@ -39,7 +41,6 @@ function PostsPage({ message, filter = "" }) {
     };
 
     setHasLoaded(false);
-    setHasLoaded(false);
     const timer = setTimeout(() => {
       fetchPosts();
     }, 1000);
@@ -50,18 +51,20 @@ function PostsPage({ message, filter = "" }) {
   }, [filter, pathname, query]);
 
   useEffect(() => {
-          const handleMount = async () => {
-              try {
-                  const [{ data: categories }] = await Promise.all([
-                      axiosReq.get('/categories/')
-                  ])
-                  setCategories(categories.results)
-              } catch (err) {
-                  console.log(err)
-              }
-          }
-          handleMount();
-      }, [])
+    const handleMount = async () => {
+      try {
+        const [{ data: categories }] = await Promise.all([
+          axiosReq.get('/categories/')
+        ])
+        setCategories(categories.results)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    handleMount();
+  }, []);
+
+
 
   return (
     <Row className="h-100">
@@ -82,16 +85,23 @@ function PostsPage({ message, filter = "" }) {
             />
           </Form>
           <Dropdown className="ml-auto">
-            <Dropdown.Toggle className={`${btnStyles.CatButton} ${btnStyles.Green} btn-lg`}>
+            <Dropdown.Toggle id="dropdown-basic" className={`${btnStyles.CatButton} ${btnStyles.Green} btn-lg`}>
               Categories
             </Dropdown.Toggle>
 
             <Dropdown.Menu className={styles.DropDown}>
-            {categories?.map((categoryObj) => (
-                            <Dropdown.Item className={styles.DropDownItem} key={categoryObj.id} href={`categories/${categoryObj.id}/`}>
-                                {categoryObj.name}
-                            </Dropdown.Item>
-                        ))}
+              {categories?.map((categoryObj) => (
+                  <Dropdown.Item
+                    className={styles.DropDownItem}
+                    as={"button"}
+                    key={categoryObj.id}
+                    value={categoryObj.id}
+                    onSelect={() => setCategory(categoryObj)}>
+                      <Link to={`/categories/${categoryObj.id}/`}>
+                    {categoryObj.name}
+                    </Link>
+                  </Dropdown.Item>
+              ))}
             </Dropdown.Menu>
           </Dropdown>
         </div>
