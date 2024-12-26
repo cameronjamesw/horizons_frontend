@@ -46,3 +46,17 @@ export const unfollowHelper = (profile, clickedProfile) => {
       ? { ...profile, following_count: profile.following_count - 1 }
       : profile;
 };
+
+export const favouriteHelper = (profile) => {
+  return {
+    ...profile,
+    favourites_count: profile.favourites_count + 1
+}
+};
+
+export const unfavouriteHelper = (profile) => {
+  return {
+    ...profile,
+    favourites_count: profile.favourites_count - 1
+}
+};
