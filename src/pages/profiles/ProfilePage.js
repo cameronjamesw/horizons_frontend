@@ -83,7 +83,7 @@ function ProfilePage() {
                             <div>following</div>
                         </Col>
                         {is_owner && <Col xs={3} className="my-2">
-                            <Link className={styles.Link} to={() => { }}>
+                            <Link className={styles.Link} to={() => '/favourites'}>
                                 <div>{profile?.favourites_count}</div>
                                 <div>favourited</div>
                             </Link>

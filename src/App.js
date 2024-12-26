@@ -44,6 +44,13 @@ function App() {
               <PostsPage
                 message="We couldn't find what you were looking for.. alter your search or like a post"
                 filter={`likes__owner__profile=${profile_id}&ordering=-likes__created_at&`} />} />
+          <Route
+            exact
+            path="/favourites"
+            render={() =>
+              <PostsPage
+                message="No results, please favourite a post.."
+                filter={`favourites__owner__profile=${profile_id}&`} />} />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/posts/create/" render={() => <PostCreateForm />} />
