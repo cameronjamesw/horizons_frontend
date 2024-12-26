@@ -60,7 +60,7 @@ function App() {
             render={() =>
               <PostsPage
                 message="No results, there are no posts in this category.."
-                filter={`category=${category.id}&`} />} />
+                filter={`category=${category?.id}&`} />} />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/posts/create/" render={() => <PostCreateForm />} />
