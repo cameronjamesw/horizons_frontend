@@ -92,12 +92,6 @@ export function CategoryEditDropdown({ id }) {
         >
           <i className={`${styles.EditIcon} fas fa-edit`} />
         </Dropdown.Item>
-        <Dropdown.Item
-          className={`${styles.DropdownItem}`}
-          aria-label="delete"
-        >
-          <i className={`${styles.DeleteIcon} fas fa-trash-alt`} />
-        </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );

@@ -4,7 +4,7 @@ import { Form, Alert, Button, Col, Row, Container } from "react-bootstrap";
 
 import styles from "../../styles/SignInUpForm.module.css";
 import appStyles from "../../App.module.css";
-import { axiosReq } from "../../api/axiosDefaults";
+import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
@@ -21,28 +21,37 @@ function EditCategoryForm() {
     const { name } = categoryName;
     const history = useHistory();
     const { id } = useParams();
-    
-        useEffect(() => {
-            const handleMount = async () => {
-              try {
+
+    useEffect(() => {
+        const handleMount = async () => {
+            try {
                 const { data } = await axiosReq.get(`/categories/${id}/`);
                 const { name } = data;
-        
+
                 currentUser.is_admin ? setCategoryName({ name }) : history.push("/");
-              } catch (err) {
+            } catch (err) {
                 console.log(err);
-              }
-            };
-        
-            handleMount();
-          }, [history, id]);
-    
+            }
+        };
+
+        handleMount();
+    }, [history, id]);
+
 
     const handleChange = (e) => {
         setCategoryName({
             ...categoryName,
             [e.target.name]: e.target.value
         })
+    };
+
+    const handleDelete = async () => {
+        try {
+            await axiosRes.delete(`/categories/${id}/`);
+            history.goBack();
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     const handleSubmit = async (e) => {
@@ -90,6 +99,12 @@ function EditCategoryForm() {
                             type="submit"
                         >
                             Edit
+                        </Button>
+                        <Button
+                            onClick={handleDelete}
+                            variant="danger"
+                        >
+                            Delete
                         </Button>
                     </Form>
                 </Container>
