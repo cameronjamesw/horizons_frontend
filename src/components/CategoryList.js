@@ -24,11 +24,9 @@ const CategoryList = () => {
                     return catObject[idx] = [category.name, category.id]
                 })
 
-                console.log(catObject);
-
                 setCategories(categories.results)
             } catch (err) {
-                console.log(err)
+                // console.log(err)
             }
         }
         handleMount();

@@ -28,7 +28,7 @@ export const CategoryProvider = ({ children }) => {
               popularCategories: data,
             }));
           } catch (err) {
-            console.log(err);
+            // console.log(err);
           }
         };
         handleMount();

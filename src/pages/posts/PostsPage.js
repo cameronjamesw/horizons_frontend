@@ -34,7 +34,7 @@ function PostsPage({ message, filter = "" }) {
         setPosts(data);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 
@@ -56,7 +56,7 @@ function PostsPage({ message, filter = "" }) {
         ])
         setCategories(categories.results)
       } catch (err) {
-        console.log(err)
+        // console.log(err)
       }
     }
     handleMount();

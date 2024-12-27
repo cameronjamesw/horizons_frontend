@@ -31,7 +31,7 @@ function EditCategoryForm() {
 
                 currentUser.is_admin ? setCategoryName({ name }) : history.push("/");
             } catch (err) {
-                console.log(err);
+                // console.log(err);
             }
         };
 
@@ -51,7 +51,7 @@ function EditCategoryForm() {
             await axiosRes.delete(`/categories/${id}/`);
             history.goBack();
         } catch (err) {
-            console.log(err);
+            // console.log(err);
         }
     };
 
@@ -64,7 +64,7 @@ function EditCategoryForm() {
             await axiosReq.put(`/categories/${id}/`, formData);
             history.push('/');
         } catch (err) {
-            console.log(err)
+            // console.log(err)
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
             }
