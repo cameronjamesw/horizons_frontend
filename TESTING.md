@@ -1,4 +1,6 @@
-# Horizons
+# Horizons - Testing
+
+![AmIResponsive Image](/src/assets/readme_assets/amiresponsive.png)
 
 ## Project goals
 
