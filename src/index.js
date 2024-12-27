@@ -10,7 +10,6 @@ import { CategoryProvider } from './contexts/CategoryContext';
 
 
 ReactDOM.render(
-  <React.StrictMode>
     <Router>
       <CurrentUserProvider>
         <ProfileDataProvider>
@@ -19,8 +18,7 @@ ReactDOM.render(
           </CategoryProvider>
         </ProfileDataProvider>
       </CurrentUserProvider>
-    </Router>
-  </React.StrictMode>,
+    </Router>,
   document.getElementById('root')
 );
 
