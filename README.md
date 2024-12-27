@@ -139,7 +139,7 @@ Albiet the wireframes may look a little different compared to the deployed versi
 
 ### Data Models
 
-- As previously eluded to, data models were planned alongside the wireframes. These can be located in the [Horizons - Backend ReadMe.md](https://github.com/cameronjamesw/horizons_backend/blob/main/README.md)
+- As previously eluded to, data models were planned alongside the wireframes. These can be located in the [Horizons - Backend ReadMe.md](https://github.com/cameronjamesw/horizons_backend/blob/main/README.md#data-models)
 
 ## Design
 
