@@ -11,6 +11,7 @@ import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
 import { Alert, Image } from "react-bootstrap";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function PostEditForm() {
 
@@ -26,6 +27,8 @@ function PostEditForm() {
     })
 
     const { title, category, content, image } = formDetail;
+    const currentUser = useCurrentUser();
+    const is_admin = currentUser?.is_admin;
 
     const imageInput = useRef(null);
     const history = useHistory();
@@ -36,14 +39,14 @@ function PostEditForm() {
           try {
             const { data } = await axiosReq.get(`/posts/${id}/`);
             const { title, category, content, image, is_owner } = data;
-            is_owner ? setFormDetail({ title, category, content, image }) : history.push("/");
+            is_owner | is_admin ? setFormDetail({ title, category, content, image }) : history.push("/");
           } catch (err) {
             // console.log(err);
           }
         };
     
         handleMount();
-      }, [history, id]);
+      }, [history, is_admin, id]);
 
     const handleChange = (e) => {
         setFormDetail({

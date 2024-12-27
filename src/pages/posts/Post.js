@@ -34,6 +34,7 @@ const Post = (props) => {
     const { setProfileData } = useSetProfileData();
 
     const is_owner = currentUser?.username === owner;
+    const is_admin = currentUser?.is_admin;
     const history = useHistory();
 
     const handleEdit = () => {
@@ -143,7 +144,7 @@ const Post = (props) => {
                     }
                     <div className='d-flex align-items-center'>
                         <span>{updated_at}</span>
-                        {is_owner && postPage && (
+                        {is_owner | is_admin && postPage && (
                             <MoreDropdown
                                 handleEdit={handleEdit}
                                 handleDelete={handleDelete}
