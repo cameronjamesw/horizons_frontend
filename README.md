@@ -42,6 +42,8 @@ Prior to developing Horizons, I had 3 major goals in mind that I wanted to achie
 
 ## User Stories
 
+Themes, epics, user stories and testing outcomes are documented in the `user_stories` worksheet of [this Google sheet](https://docs.google.com/spreadsheets/d/1xT0BXdg621rtGnQodwNQhRxqZqIO8vNXq3Ope-zOwR8/edit?usp=sharing).
+
 ### Themes
 
 ### Epics
