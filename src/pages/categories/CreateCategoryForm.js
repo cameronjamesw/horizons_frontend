@@ -7,9 +7,7 @@ import appStyles from "../../App.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
-
 function CreateCategoryForm() {
-
     const [categoryName, setCategoryName] = useState({
         name: ""
     });

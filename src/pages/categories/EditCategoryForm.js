@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 
-import { Form, Alert, Button, Col, Row, Container } from "react-bootstrap";
+import { Form, Alert, Button, Col, Row, Container, Modal } from "react-bootstrap";
 
 import styles from "../../styles/SignInUpForm.module.css";
 import appStyles from "../../App.module.css";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { render } from "@testing-library/react";
+import DeletionModal from "../../components/DeletionModal";
 
 
 function EditCategoryForm() {
@@ -100,12 +102,7 @@ function EditCategoryForm() {
                         >
                             Edit
                         </Button>
-                        <Button
-                            onClick={handleDelete}
-                            variant="danger"
-                        >
-                            Delete
-                        </Button>
+                        <DeletionModal handleDelete={handleDelete} />
                     </Form>
                 </Container>
             </Col>
