@@ -26,7 +26,7 @@ function CreateCategoryForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const formData = new FormData;
+        const formData = new FormData();
 
         formData.append('name', name)
         try {

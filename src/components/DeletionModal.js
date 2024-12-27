@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Button, Dropdown, Modal } from "react-bootstrap";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import styles from "../styles/MoreDropdown.module.css"
 
 function DeletionModal(props) {
@@ -9,7 +8,6 @@ function DeletionModal(props) {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const { id }  = useParams();
 
     return (
         <>
