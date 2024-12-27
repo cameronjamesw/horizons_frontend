@@ -33,6 +33,14 @@ Prior to developing Horizons, I had 3 major goals in mind that I wanted to achie
     + [Search Post Feed](#search-post-feed)
     + [Popular Profiles](#view-popular-profiles)
     + [Popular Categories](#view-popular-categories)
+    + [Create Category](#create-category)
+    + [Create Post](#create-post)
+    + [View Post](#view-post)
+    + [Like Post](#liking-a-post)
+    + [Favourite A Post](#favourite-a-post)
+    + [Edit-Delete Dropdown](#edit--delete-post-dropdown)
+    + [Edit Post](#edit-post)
+    + [Delete Post](#delete-post)
     + [Re-use of components](#re-use-of-components)
     + [CRUD functionality](#crud-functionality)
     + [Future improvements and features](#future-improvements-and-features)
@@ -242,6 +250,96 @@ Upon clicking on the category, the user's search of the post feed will be altere
 ![A screenshot of the admin view of the popular categories component](/src/assets/readme_assets/features_images/popular-categories-admin.png)
 
 Admin users will have a slightly different view to standard users - instead they will have the option to edit and delete the category, this being indicated by the three dots located to the left fo the category name. (see above)
+
+### Create Category
+
+![Screenshot of the create category form](/src/assets/readme_assets/features_images/create-category.png)
+
+Admin users will be able to access the create category form. Here admn users can create a new category, providing it doesn't already exist within the database.
+
+Validation methods are in place to check whether the category exists prior to submission, and the length of the category name - rejecting if it is larger than 20 characters.
+
+Upon creating a category, users will be able to add their posts to the newly created category, and they will also be able to use the category as a search parameter in the post feed page.
+
+### Create Post
+
+![A screenshot of the create post form](/src/assets/readme_assets/features_images/create-post.png)
+
+As eluded to earlier, authenticated users will be able to create their own posts. 
+
+The fields in which the user needs to fill out are `title`, `content`, `category` and `image`. Category is not a required field as stated in the backend of the application - if no category is chosen then the category for the post will default to null. All other fields are rewuired; however, and validation is in place to ensure that they are filled out correctly.
+
+The image field houses a validation method which checks the image size - if it is larger than 50Mb then the form is rejected. This ensures that the images provided by users stay within the parameters set by Cloudinary - the image storing cloud service.
+
+Upon creating the post and submitting the form - the user is directed to their post where they can view the details going forward.
+
+### View Post
+
+![Screenshot of the post page](/src/assets/readme_assets/features_images/view-post.png)
+
+Upon clicking on a post, the user will be taken to that specific post page, show a more detailed view of the post than before.
+
+The user will be able to see comments for the post below the post component, they will be able to add theit own comments if they are authenticated.
+
+### Liking A Post
+
+![A screenshot of the likes count for a post](/src/assets/readme_assets/features_images/like-comments-count.png)
+
+Similar to the user being able to comment if they are authenticated, they will also be able to like the post - providing that it is not their own.
+
+Upon liking the post, the heart icon will turn bright red - this being an indicator that they have indeed liked the post. Upon clicking it again, or unliking the post, the heart icon will return back to it's original state, this giving the user a clear indicator that they have unliked the post.
+
+Upon liking a post, the like count of the post will increase, which is evident to the user - and the liked post will then appear in the user's liked feed - this being referred to earlier. Upon unliking the post, the post will then be removed from the liked feed.
+
+### Favourite A Post 
+
+![A screenshot of a post being favourited](/src/assets/readme_assets/features_images/favourite-post.png)
+
+Similar to liking a post, authenticated users will be able to favourite a post too. Unlike the like functionality though - users will be able to favourite their own posts.
+
+If the user is unauthenticated then the favourite button will be hidden, as it is conditionally rendered based on the user's authenticated status.
+
+The initial state of the favourite button will be an outline of a star, upon hovering over the star the border changes t a gold colour, implying for the user to click it. Upon clicking, and in turn favouriting the post, the star will become solid gold, giving the user a clear indication that they have favourited the post.
+
+When favouriting a post, the user's favourites_count will be increased, and this is reflected on their profile page (more on this later). Furthermore, the favourited post will be added to the user's favourites list, and this will be accessible within their own profile.
+
+### Edit & Delete Post Dropdown
+
+![Screenshot of the edit and delete dropdown](/src/assets/readme_assets/features_images/edit-delete%20post.png)
+
+This edit-delete dropdown gives the owner of the post the ability to edit and delete the post in question.
+
+This dropdown menu is reserved for the owner of the post; however, admins will be able to access this too, regardless of whether they are the owner. This is so that thet have update and deletion permissions in the view of safeguarding. (See below)
+
+![Screenshot of admin viewing dropdown](/src/assets/readme_assets/features_images/edit-delete-admin.png)
+
+Note how the logged in user is not the owner of the post - however they have the edit and delete functionality.
+Compare this to the example below, whereby a standard user does not have the permission to edit and delete another user's post.
+
+![Screenshot of user viewing dropdown](/src/assets/readme_assets/features_images/edit-delete%20user.png)
+
+### Edit Post
+
+![Screenshot of edit post](/src/assets/readme_assets/features_images/edit-post.png)
+
+When clicking the edit button, the user is redirected to the edit post page, with the predefined fields being allocated before updating for a positive user experience.
+
+The post edit form has the same funcitonality and validation as the post create form - whereby the form will bounce if any of the required fields are incomplete. Furthermore, this stops users from erasing fields and having empty content on their post page.
+
+The only instance that this is allowed in, is if the user chooses the deselect an already pre-selected category. In this instance the category will just be set to null.
+
+Upon submission, the user is redirected back to the post they were on beforehand, and the edit data is reflected to the user.
+
+### Delete Post
+
+![A screenshot of the deletion modal](/src/assets/readme_assets/features_images/delete-post.png)
+
+When clicking the delete post option from the edit-delete dropdown, the user is met with the deletion modal. This ensures that if the user accidentally clicked the delete button then they have the chance to save their post from being deleted.
+
+Clicking anywhere on the screen will close the modal without causing the post to be deleted, and then clicking on delete will then delete the post.
+
+This reassurance of decision ensures a positive user experience.
+
 
 ### Re-use of components
 
