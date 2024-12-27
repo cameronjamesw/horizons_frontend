@@ -25,7 +25,6 @@ Prior to developing Horizons, I had 3 major goals in mind that I wanted to achie
     + [Data models](#data-models)
   * [Design](#design)
     + [Colours](#colours)
-    + [Fonts](#fonts)
   * [Features](#features)
     + [Re-use of components](#re-use-of-components)
     + [CRUD functionality](#crud-functionality)
@@ -145,7 +144,15 @@ Albiet the wireframes may look a little different compared to the deployed versi
 
 ### Colours
 
-### Fonts
+![A screenshot of the colours used throughout the project](/src/assets/readme_assets/colors.png)
+
+- It quickly became clear to me that I wanted the Horizons Application to consist of mainly darker colours  - I prefer a darker look as I feel it provides a sleek design and allows components to really stand out, and provided maximum UX.
+
+- `#356933` was intended to be the main colours throughout the application, whereby UX was concerned. Despite `#000` and `#141414` shrouding a load of the place, the majority of interactive components were showcased using `#356933`. It is a very vibrant colour, when contrasting it to the dark background, and in turn provides great UX when eluding to interactive and clickable features.
+
+- `#C9A588` was used as a secondary colour to follow up `#356933`. The off-white, cream-like colour again provides excellent contrast against the dark background, but it also provides a superb border for the majority of components throughout the application. Using `#C9A588` as a border colour really makes components stand out amongst the background and again provides excellent UX. The contrast with `#356933` is also very strong, and in turn effective, and should not go unnoticed.
+
+- `#fff` has also been used throughout the application, primarily in the form of input fields. This is just to reinforce to the user that they are entering data - the difference in colour here will be a great defining factor fot the User's Experience.
 
 ## Features
 
