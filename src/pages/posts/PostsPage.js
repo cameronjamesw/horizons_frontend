@@ -17,6 +17,7 @@ import PopularProfiles from "../profiles/PopularProfiles";
 import { Dropdown } from "react-bootstrap";
 import { useSetCategoryContext } from "../../contexts/CategoryContext";
 import PopularCategories from "../categories/PopularCategories";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
@@ -24,6 +25,7 @@ function PostsPage({ message, filter = "" }) {
   const { pathname } = useLocation();
   const [categories, setCategories] = useState();
   const setCategory = useSetCategoryContext();
+  const currentUser = useCurrentUser();
 
   const [query, setQuery] = useState("");
 
@@ -46,7 +48,7 @@ function PostsPage({ message, filter = "" }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, pathname, query]);
+  }, [filter, pathname, query, currentUser]);
 
   useEffect(() => {
     const handleMount = async () => {
