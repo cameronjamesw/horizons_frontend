@@ -84,6 +84,8 @@ Themes documented above were then revised into the following epics
   - Conditional Rendering
 
 ### User Stories
+User stories required to implement each epic were created. These were categorised according to whether they were 'must have' features required to implement a Minimum Viable Product (MVP).
+Please see the [Google sheet](https://docs.google.com/spreadsheets/d/1xT0BXdg621rtGnQodwNQhRxqZqIO8vNXq3Ope-zOwR8/edit?usp=sharing) for detail.
 
 ## Agile Development Methodology
 
