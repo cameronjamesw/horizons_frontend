@@ -17,7 +17,6 @@ Prior to developing Horizons, I had 3 major goals in mind that I wanted to achie
   * [Project goals](#project-goals)
   * [Table of contents](#table-of-contents)
   * [User stories](#user-stories)
-    + [Themes](#themes)
     + [Epics](#epics)
     + [User stories](#user-stories)
   * [Agile development methodology](#agile-development-methodology)
@@ -44,9 +43,45 @@ Prior to developing Horizons, I had 3 major goals in mind that I wanted to achie
 
 Themes, epics, user stories and testing outcomes are documented in the `user_stories` worksheet of [this Google sheet](https://docs.google.com/spreadsheets/d/1xT0BXdg621rtGnQodwNQhRxqZqIO8vNXq3Ope-zOwR8/edit?usp=sharing).
 
-### Themes
-
 ### Epics
+
+Themes documented above were then revised into the following epics
+
+- Post Feed Epic
+  - View Recent Posts
+  - Search For Posts
+  - Infinite Scroll
+  - See Popular Categories
+  - See Popular Posts
+- Profile Epic
+  - Profile Leaderboard
+  - View Profiles
+  - Following/Unfollowing Users
+  - Update Username & Password
+  - Update Profile
+  - Share Friendcode
+  - Display Favourite Posts
+- Post Detail Epic
+  - Delete Post
+  - Edit a Post
+  - Create a Comment
+  - View Comments
+  - Delete Comment
+  - Edit Comment
+  - Post Page
+- Addling & Liking Posts Epic
+  - Create a Post
+  - Create a Category
+  - Liking Posts
+  - Favourite Posts
+  - View Posts
+- Authentication & Navigation Epic
+  - Navigation
+  - Routing
+  - Authentication - Sign In, Sign Up, Sign Out
+  - Authentication - Logged-In Status
+  - Responsive Navigation
+  - Conditional Rendering
 
 ### User Stories
 
