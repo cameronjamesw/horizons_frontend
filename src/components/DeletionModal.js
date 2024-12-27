@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Button, Modal } from "react-bootstrap";
+import { Button, Dropdown, Modal } from "react-bootstrap";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import styles from "../styles/MoreDropdown.module.css"
 
 function DeletionModal(props) {
     const [show, setShow] = useState(false);
-    const { handleDelete } = props
+    const { handleDelete, dropDown } = props
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -12,9 +13,19 @@ function DeletionModal(props) {
 
     return (
         <>
+        { dropDown ? (
+            <Dropdown.Item
+            onClick={handleShow}
+          >
+            <i className={`${styles.DeleteIcon} fas fa-trash`} />
+          </Dropdown.Item>
+        ) : (
             <Button variant="danger" onClick={handleShow}>
                 Delete
             </Button>
+            
+        )}
+            
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>

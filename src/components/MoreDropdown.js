@@ -2,6 +2,7 @@ import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
 import styles from "../styles/MoreDropdown.module.css";
 import { useHistory } from "react-router";
+import DeletionModal from "./DeletionModal";
 
 // The forwardRef is important!!
 // Dropdown needs access to the DOM node in order to position the Menu
@@ -32,12 +33,9 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
         >
           <i className={`${styles.EditIcon} fas fa-edit`} />
         </Dropdown.Item>
-        <Dropdown.Item
-          className={`${styles.DropdownItem}`}
-          onClick={handleDelete}
-          aria-label="delete"
-        >
-          <i className={`${styles.DeleteIcon} fas fa-trash-alt`} />
+        <Dropdown.Item className={styles.DropdownItem}>
+          <DeletionModal
+          handleDelete={handleDelete} dropDown />
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
