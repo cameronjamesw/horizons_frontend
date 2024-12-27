@@ -105,7 +105,41 @@ The project boards in their final form can be accessed over at the [Horizons Pro
 
 ### Mockups
 
+Prior to development, multiple wireframes were drafted using [Figma](https://www.figma.com/files/team/1418312351433626670/recents-and-sharing?fuid=1418312347068131481) in order to gain a deeper understanding of how the application was going to look, moving forward. The wireframes were also designed with the `data models` in mind in order to provide maximum efficiency when working with the back end.
+
+Albiet the wireframes may look a little different compared to the deployed version of the application; however, they still provided excellent scope for creating the application, and any changes made against the wireframes have been documented throughout.
+
+#### Desktop
+
+**Post Feed Page**
+
+![Post Feed Desktop Wireframe](/src/assets/readme_assets/wireframes/Horizons%20Home%20-%20Desktop.png)
+
+**Post Detail Page**
+
+![Post Detail Page Desktop Wireframe](/src/assets/readme_assets/wireframes/Horizons%20Post%20Page%20-%20Desktop.png)
+
+**Profile Page**
+
+![Profile Page Desktop Wireframe](/src/assets/readme_assets/wireframes/Horizons%20Profile%20-%20Desktop.png)
+
+#### Mobile
+
+**Post Feed Page**
+
+![Post Feed Mobile Wireframe](/src/assets/readme_assets/wireframes/Horizons%20Home%20-%20Mobile%20.png)
+
+**Post Detail Page**
+
+![Post Detail Page Mobile Wireframe](/src/assets/readme_assets/wireframes/Horizons%20Post%20Page%20-%20Mobile%20.png)
+
+**Profile Page**
+
+![Profile Page Mobile Wireframe](/src/assets/readme_assets/wireframes/Horizons%20Profile%20-%20Mobile.png)
+
 ### Data Models
+
+- As previously eluded to, data models were planned alongside the wireframes. These can be located in the [Horizons - Backend ReadMe.md](https://github.com/cameronjamesw/horizons_backend/blob/main/README.md)
 
 ## Design
 
