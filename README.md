@@ -26,6 +26,13 @@ Prior to developing Horizons, I had 3 major goals in mind that I wanted to achie
   * [Design](#design)
     + [Colours](#colours)
   * [Features](#features)
+    + [Sign-Up Form](#sign-up-form)
+    + [Sign-In Form](#sign-in-form)
+    + [Responsive & Conditional Navigation](#responsive-navbar)
+    + [View Post Feed](#view-post-feed)
+    + [Search Post Feed](#search-post-feed)
+    + [Popular Profiles](#view-popular-profiles)
+    + [Popular Categories](#view-popular-categories)
     + [Re-use of components](#re-use-of-components)
     + [CRUD functionality](#crud-functionality)
     + [Future improvements and features](#future-improvements-and-features)
@@ -155,6 +162,86 @@ Albiet the wireframes may look a little different compared to the deployed versi
 - `#fff` has also been used throughout the application, primarily in the form of input fields. This is just to reinforce to the user that they are entering data - the difference in colour here will be a great defining factor fot the User's Experience.
 
 ## Features
+
+### Sign-Up Form
+
+![Screenshot of the Sign Up Form](/src/assets/readme_assets/features_images/sign-up-form.png)
+
+Before the user is able to really enage with anything on the site, they will have to create an account, and they are able to do this through filling out the sign-up form. A user instance will be created for the user upon submitting the form, and their credentials will be logged. Upon signing up, the user will be redirected to the sign-in page where they can log in with the given credentials.
+
+Form validation is in place here - if the user attempts to leave any fields blank, or the passwords do not match, for example, the user will be notified and the form will not be submitted. 
+
+### Sign-In Form
+
+![Screenshot of the Sign In Form](/src/assets/readme_assets/features_images/sign-in-form.png)
+
+Here the user will be able to log in to their account using their credentials.
+
+Again, form validation is in place here as in the event that the credentials are invalid, the user will be notifed of this and they will be unable to log in to their account. Upon logging into their account, the user will be able to access features that are reserved for authenticated users only.
+
+### Responsive NavBar
+
+![A screenshot of the Navbar when logged out](/src/assets/readme_assets/features_images/responsive-nav.png)
+
+Before logging in, above is a preview of the navbar that will be available to the user. It will be noted that there are only a few limited options to the user, this is to encourage users to become part of the community, and it also protects from unauthenticated users bombarding the site.
+
+![A screenshot of the NavBar when authenticated as a user](/src/assets/readme_assets/features_images/user-navbar.png)
+
+Here the navbar has an array of options now that the user is authenticated. The user is able to access the `Create Post` link, this will allow them to create their own posts within the Horizons community.
+
+Furthermore they also have the option to view their own feed, along with viewing their liked feed and their own profile. And finally they have the option to sign out of their account.
+
+![A screenshot of the NavBar when authenticated as an admin](/src/assets/readme_assets/features_images/admin-navbar.png)
+
+If the user is of admin status, then there will be more features available to the user. For example, in the screenshot about, the admin user has access to the `Create Category` link. This allows the admin user to create a new category that posts can then be added to.
+
+This feature is reserved for admin users as I do not want users having the ability to create categories as that will become overloaded very quickly.
+
+### View Post Feed
+
+![A screenshot of the post feed](/src/assets/readme_assets/features_images/post-feed.png)
+
+When clicking the home button within the navbar, the user will be taken to the post feed. Here the latest posts will be loaded for the user and they will be able to interact with them if authenticated, or just view them otherwise.
+
+Posts are loaded for the user depending on how recent they are, with the latest posts being retrieved and loaded first.
+
+### Search Post Feed
+
+![A screenshot of the search bar component](/src/assets/readme_assets/features_images/searchbar-and-categories.png)
+
+Users can also search for posts which interest them. The search bar component allows users to search for posts through `title`, `post_owner` and `category_name`. Upon entering these key words into the search bar, the user will be displayed the relevent posts.
+
+Users can also select a category to search by - as seen to the right of the search bar component. This dropdown menu allows user to select a category to search by and the relevent posts will be displayed to the user.
+
+If in the event that there are no matching posts to the parameters provided, the user will be met with a no results page, encouraging the user to broaden their search.
+
+![A screenshot of no results being displayed along with error message](/src/assets/readme_assets/features_images/no-results.png)
+
+### View Popular Profiles
+
+![Screenshot of the PopularProfiles Component](/src/assets/readme_assets/features_images/popular-profiles.png)
+
+Along with the post feed, when on the home page, the user will also be able to see the popular profiles. This is displayed on the right-hand side of the post feed, and users are able to interact with the component depending on their authenticated status.
+
+Authenticated users will be able to follow one of the profiles if they choose, as there will be a follow button on the right hand side of the profile component. Furthermore, if they click on the user's avatar icon, then they will be directed to the clicked user's profile page. If the user's profile appears in the popular profiles component, they will be unable to follow their own profile - and this is reflected by the absence of the follow button on the user's profile.
+
+Unauthenticated users will not be able to follow a profile - however they will be directed to the profile page upon clicking on the avatar (see below).
+
+![A screenshot of the popularprofiles component when unauthenticated](/src/assets/readme_assets/features_images/unauth-popular-profiles.png)
+
+### View Popular Categories
+
+![Screenshot of the popular categories component](/src/assets/readme_assets/features_images/popular-categories-user.png)
+
+Underneath the popular profiles component, the user can find the popular categories component. This component renders the most popular categories, popularity being defined by the amount of posts within each category - with categories being ordered in descending order of their posts count.
+
+Within the component, the posts count will also be displayed to the user so that they can guage just how popular the category is.
+
+Upon clicking on the category, the user's search of the post feed will be altered by the category, and all the relevent posts will be rendered to the user. If a category does not have post in it, it is still rendered to the user; however, the no results page is shown instead.
+
+![A screenshot of the admin view of the popular categories component](/src/assets/readme_assets/features_images/popular-categories-admin.png)
+
+Admin users will have a slightly different view to standard users - instead they will have the option to edit and delete the category, this being indicated by the three dots located to the left fo the category name. (see above)
 
 ### Re-use of components
 
