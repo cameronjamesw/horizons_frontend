@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { axiosReq } from "../api/axiosDefaults";
 import { useCurrentUser } from "./CurrentUserContext";
+import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 export const categoryContext = createContext();
 export const setCategoryContext = createContext();
@@ -14,7 +15,7 @@ export const CategoryProvider = ({ children }) => {
         clickedCategory: {results: []},
         popularCategories: {results: []}
     });
-    console.log(category);
+    const pathname = useLocation();
 
     useEffect(() => {
         const handleMount = async () => {
@@ -31,7 +32,7 @@ export const CategoryProvider = ({ children }) => {
           }
         };
         handleMount();
-      }, [currentUser]);
+      }, [currentUser, pathname]);
 
     return (
         <categoryContext.Provider value={category}>
