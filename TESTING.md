@@ -23,6 +23,8 @@
 
 ### W3C CSS Validator
 
+- All CSS files were passed through the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) and no issues were found.
+
 ### ESLint JavaScript Validator
 
 ### Lighthouse Testing
