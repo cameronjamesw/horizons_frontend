@@ -1,10 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
+import {Form, Button, Row, Col, Container} from "react-bootstrap";
 
 import UploadIcon from "../../assets/upload-icon.jpeg";
 import { axiosReq } from '../../api/axiosDefaults'
