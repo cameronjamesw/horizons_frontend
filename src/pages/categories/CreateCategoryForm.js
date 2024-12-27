@@ -17,7 +17,6 @@ function CreateCategoryForm() {
     const [errors, setErrors] = useState({})
 
     const { name } = categoryName;
-    
     const history = useHistory();
 
     const handleChange = (e) => {
@@ -32,7 +31,6 @@ function CreateCategoryForm() {
         const formData = new FormData;
 
         formData.append('name', name)
-
         try {
             const { data } = await axiosReq.post('/categories/', formData);
             history.push('/');
@@ -40,7 +38,7 @@ function CreateCategoryForm() {
             console.log(err)
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
-              }
+            }
         }
 
     }
@@ -62,11 +60,11 @@ function CreateCategoryForm() {
                                 className={styles.Input}
                             />
                         </Form.Group>
-                                {errors?.name?.map((message, idx) => (
-                                  <Alert variant="warning" key={idx}>
-                                    {message}
-                                  </Alert>
-                                ))}
+                        {errors?.name?.map((message, idx) => (
+                            <Alert variant="warning" key={idx}>
+                                {message}
+                            </Alert>
+                        ))}
 
                         <Button
                             variant="success"
