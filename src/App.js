@@ -17,6 +17,7 @@ import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import { useCategoryContext } from './contexts/CategoryContext';
 import EditCategoryForm from './pages/categories/EditCategoryForm';
+import NotFound from './components/NotFound';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -85,7 +86,7 @@ function App() {
             path="/profiles/:id/edit"
             render={() => <ProfileEditForm />}
           />
-          <Route render={() => <h1>Page not found..</h1>} />
+          <Route render={() => <NotFound />} />
         </Switch>
       </Container>
     </div>
