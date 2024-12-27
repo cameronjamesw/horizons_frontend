@@ -5,10 +5,13 @@ import appStyles from "../../App.module.css"
 import styles from "../../styles/PopularCategories.module.css"
 import Asset from '../../components/Asset';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { MoreDropdown } from '../../components/MoreDropdown';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
 
 const PopularCategories = ({ mobile }) => {
     const { popularCategories } = useCategoryContext();
     const setCategory = useSetCategoryContext();
+    const currentUser = useCurrentUser();
 
     return (
         <Container className={`mt-5 ${appStyles.Content}`} >
@@ -19,17 +22,24 @@ const PopularCategories = ({ mobile }) => {
                         <> </>
                     ) : (
                         popularCategories.results.map((category) => (
+                            <>
                             <div className={`${styles.BorderBottom} d-flex p-2`}>
-                                <Link 
+                                { currentUser?.is_admin ? (
+                                    <div><MoreDropdown/></div>
+                                ) : (
+                                    <></>
+                                )}
+                                <div><Link 
                                 to={`/categories/${category.id}/`} 
                                 className={styles.Link} key={category.id}
                                 onClick={() => setCategory((prevState) => ({
                                     ...prevState,
                                     clickedCategory: { results: [category] },
                                 }))}>
-                                    {category.name}</Link>
-                                <p className='ml-auto'>No. Posts: {category.posts_count}</p>
+                                    {category.name}</Link></div>
+                                <div className='ml-auto'><p >No. Posts: {category.posts_count}</p></div>
                             </div>
+                            </>
                         ))
                     )}
                 </>
