@@ -89,6 +89,18 @@ Please see the [Google sheet](https://docs.google.com/spreadsheets/d/1xT0BXdg621
 
 ## Agile Development Methodology
 
+GitHub issues and projects were used to document and track an agile development approach.
+A GitHub issue was created for each user story, with labels to indicate if they were required for the MVP.
+
+A GitHub project board was created for each iteration, and user stories moved from the product backlog into the relevant iteration as each cycle of work began. User stories were labelled as 'must have', 'could have' or 'should have' goals for that specific iteration.
+
+A project kanban board was used to track progress, with user stories moved between 'Todo', 'In Progress' and 'Done' columns as appropriate. For example, the iteration 2 project board was captured at the start, in the middle and at the end.
+
+A fourth column for 'Wont Have' was created too, as per the MoSCoW analogy.
+Within the Posts Feed project board, you will notice that one particular user story is located under the `wont have` column. I decided that it was not neccessary to include this feature - it was not part of the MVP, and I feel that it was not adding to the user's experience.
+
+The project boards in their final form can be accessed over at the [Horizons Project Board](https://github.com/cameronjamesw/horizons_frontend/projects?query=is%3Aopen).
+
 ## Planning
 
 ### Mockups
