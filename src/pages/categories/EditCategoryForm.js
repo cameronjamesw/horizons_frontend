@@ -95,14 +95,17 @@ function EditCategoryForm() {
                                 {message}
                             </Alert>
                         ))}
-
-                        <Button
-                            variant="success"
-                            type="submit"
-                        >
-                            Edit
-                        </Button>
-                        <DeletionModal handleDelete={handleDelete} />
+                        <div>
+                            <Button
+                                variant="success"
+                                type="submit"
+                                className="mx-2"
+                            >
+                                Edit
+                            </Button>
+                            <DeletionModal
+                            handleDelete={handleDelete} />
+                        </div>
                     </Form>
                 </Container>
             </Col>
