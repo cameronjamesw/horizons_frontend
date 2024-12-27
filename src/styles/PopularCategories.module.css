@@ -1,0 +1,12 @@
+.Link {
+    font-weight: bolder;
+}
+
+.Link:Hover {
+    text-decoration: underline;
+    color: #356933;
+}
+
+.BorderBottom {
+    border-bottom: #3d3d3d 2px solid;
+}

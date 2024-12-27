@@ -21,6 +21,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/resetti.png";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
+import PopularCategories from "../categories/PopularCategories";
 
 function ProfilePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
@@ -185,6 +186,7 @@ function ProfilePage() {
             </Col>
             <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
                 <PopularProfiles />
+                <PopularCategories />
             </Col>
         </Row>
     );

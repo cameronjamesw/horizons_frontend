@@ -19,6 +19,7 @@ import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import { Dropdown } from "react-bootstrap";
 import { useSetCategoryContext } from "../../contexts/CategoryContext";
+import PopularCategories from "../categories/PopularCategories";
 
 function PostsPage({ message, filter = "" }) {
   const [posts, setPosts] = useState({ results: [] });
@@ -96,7 +97,10 @@ function PostsPage({ message, filter = "" }) {
                   as={"button"}
                   key={categoryObj.id}
                   value={categoryObj.id}
-                  onSelect={() => setCategory(categoryObj)}>
+                  onSelect={() => setCategory((prevState) => ({
+                    ...prevState,
+                    clickedCategory: { results: [categoryObj] },
+                }))}>
                   <Link
                     to={`/categories/${categoryObj.id}/`}
                     className={styles.Link}>
@@ -135,8 +139,9 @@ function PostsPage({ message, filter = "" }) {
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles />
+        <PopularCategories />
       </Col>
-    </Row>
+    </Row >
   );
 }
 

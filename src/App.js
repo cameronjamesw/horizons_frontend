@@ -20,8 +20,8 @@ import { useCategoryContext } from './contexts/CategoryContext';
 function App() {
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
-  const category = useCategoryContext();
-  console.log(category);
+  const { clickedCategory } = useCategoryContext();
+  const [category] = clickedCategory.results
 
   return (
     <div className={styles.App}>
