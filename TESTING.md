@@ -27,6 +27,8 @@
 
 ### ESLint JavaScript Validator
 
+- All JavaScript files, including `App.js` and `index.js` were ran through ESLint within the CLI. ESLint was installed, and upon running no errors were found in the code.
+
 ### Lighthouse Testing
 
 ### Resolved Bugs
