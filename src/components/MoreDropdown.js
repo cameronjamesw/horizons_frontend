@@ -74,3 +74,31 @@ export function ProfileEditDropdown({ id }) {
     </Dropdown>
   );
 }
+
+export function CategoryEditDropdown({ id }) {
+  const history = useHistory();
+  return (
+    <Dropdown className="ml-auto" drop="left">
+      <Dropdown.Toggle as={ThreeDots} />
+
+      <Dropdown.Menu
+        className="text-center"
+        popperConfig={{ strategy: "fixed" }}
+      >
+        <Dropdown.Item
+          className={styles.DropdownItem}
+          onClick={() => history.push(`/categories/${id}/edit/`)}
+          aria-label="edit"
+        >
+          <i className={`${styles.EditIcon} fas fa-edit`} />
+        </Dropdown.Item>
+        <Dropdown.Item
+          className={`${styles.DropdownItem}`}
+          aria-label="delete"
+        >
+          <i className={`${styles.DeleteIcon} fas fa-trash-alt`} />
+        </Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+  );
+}

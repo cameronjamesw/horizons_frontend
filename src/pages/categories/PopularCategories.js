@@ -4,14 +4,19 @@ import { Container } from 'react-bootstrap';
 import appStyles from "../../App.module.css"
 import styles from "../../styles/PopularCategories.module.css"
 import Asset from '../../components/Asset';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-import { MoreDropdown } from '../../components/MoreDropdown';
+import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { CategoryEditDropdown } from '../../components/MoreDropdown';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 
 const PopularCategories = ({ mobile }) => {
     const { popularCategories } = useCategoryContext();
     const setCategory = useSetCategoryContext();
     const currentUser = useCurrentUser();
+    const history = useHistory();
+
+    const handleEdit = (id) => {
+        history.push(`/posts/${id}/edit/`);
+    };
 
     return (
         <Container className={`mt-5 ${appStyles.Content}`} >
@@ -25,7 +30,7 @@ const PopularCategories = ({ mobile }) => {
                             <>
                             <div className={`${styles.BorderBottom} d-flex p-2`}>
                                 { currentUser?.is_admin ? (
-                                    <div><MoreDropdown/></div>
+                                    <div><CategoryEditDropdown id={category.id}/></div>
                                 ) : (
                                     <></>
                                 )}

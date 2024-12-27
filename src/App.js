@@ -16,6 +16,7 @@ import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import { useCategoryContext } from './contexts/CategoryContext';
+import EditCategoryForm from './pages/categories/EditCategoryForm';
 
 function App() {
   const currentUser = useCurrentUser();
@@ -29,6 +30,7 @@ function App() {
       <Container className={styles.Main}>
         <Switch>
         <Route exact path="/categories/create/" render={() => <CreateCategoryForm />} />
+        <Route exact path="/categories/:id/edit/" render={() => <EditCategoryForm />} />
           <Route
             exact
             path="/"

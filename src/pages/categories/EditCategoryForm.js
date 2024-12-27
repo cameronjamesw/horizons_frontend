@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Form, Alert, Button, Col, Row, Container } from "react-bootstrap";
 
 import styles from "../../styles/SignInUpForm.module.css";
 import appStyles from "../../App.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 
-function CreateCategoryForm() {
+function EditCategoryForm() {
+    const currentUser = useCurrentUser();
 
     const [categoryName, setCategoryName] = useState({
         name: ""
@@ -18,6 +20,23 @@ function CreateCategoryForm() {
 
     const { name } = categoryName;
     const history = useHistory();
+    const { id } = useParams();
+    
+        useEffect(() => {
+            const handleMount = async () => {
+              try {
+                const { data } = await axiosReq.get(`/categories/${id}/`);
+                const { name } = data;
+        
+                currentUser.is_admin ? setCategoryName({ name }) : history.push("/");
+              } catch (err) {
+                console.log(err);
+              }
+            };
+        
+            handleMount();
+          }, [history, id]);
+    
 
     const handleChange = (e) => {
         setCategoryName({
@@ -32,7 +51,7 @@ function CreateCategoryForm() {
 
         formData.append('name', name)
         try {
-            await axiosReq.post('/categories/', formData);
+            await axiosReq.put(`/categories/${id}/`, formData);
             history.push('/');
         } catch (err) {
             console.log(err)
@@ -47,7 +66,7 @@ function CreateCategoryForm() {
         <Row className={styles.Row}>
             <Col className="my-5 p-0 p-md-2" xs={10} lg={6}>
                 <Container className={`${appStyles.Content} p-4 `}>
-                    <h1 className={styles.Header}>Create Category</h1>
+                    <h1 className={styles.Header}>Edit Category</h1>
                     <Form onSubmit={handleSubmit}>
                         <Form.Group controlId="name">
                             <Form.Label className="d-none">Category Name</Form.Label>
@@ -70,7 +89,7 @@ function CreateCategoryForm() {
                             variant="success"
                             type="submit"
                         >
-                            Create
+                            Edit
                         </Button>
                     </Form>
                 </Container>
@@ -79,4 +98,4 @@ function CreateCategoryForm() {
     )
 }
 
-export default CreateCategoryForm
+export default EditCategoryForm
