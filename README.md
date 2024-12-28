@@ -591,6 +591,16 @@ Lower priority, longer term features to be added are:
 
 ## Frameworks, Libraries & Dependencies
 
+- [React-Router-Dom](https://www.npmjs.com/package/react-router-dom)
+
+- [React-Dom](https://reactjs.org/docs/react-dom.html)
+
+- [Axios](https://www.npmjs.com/package/axios) - the axios library was chosen to simplify making HTTP requests to the REST API (e.g. not having to manually configure HTTP headers), and because it enables simple implementation of 'interceptors' which are used to request a refresh token in the event of a HTTP 401 error. This enhances the user experience beacuse an authenticated user remains signed in for up to 24 hours, rather than having to sign in again after five minutes.
+
+- [JWT-Decode](https://www.npmjs.com/package/jwt-decode) - used to decode Base64URL encoded JSON web tokens.
+
+- [Bootstrap 4](https//www.bootstrap.com)
+
 ## React features to enhance user experience
 
 ### Custom Hooks
