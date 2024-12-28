@@ -112,7 +112,7 @@ function PostCreateForm() {
         ))}
 
         <Form.Group controlId="content">
-          <Form.Label><label>Content</label></Form.Label>
+          <Form.Label>Content</Form.Label>
           <Form.Control
             as="textarea"
             name="content"

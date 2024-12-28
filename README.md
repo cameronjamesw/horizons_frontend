@@ -580,6 +580,8 @@ The following fixes and improvements would be made in the short term as a high p
 - Add an unlike, or down-vote, feature to posts.
 - Add further customisation fields to user's profiles.
 - Add admin or user status for users in the navbar.
+- Add functionality so that no more than one comment edit form can be open at one time.
+- Remove edit functionality for admin users - they should only have permissions to delete content of users, not update it.
 
 #### Long Term Improvements
 Lower priority, longer term features to be added are:

@@ -12,6 +12,7 @@ import DeletionModal from "../../components/DeletionModal";
 
 function EditCategoryForm() {
     const currentUser = useCurrentUser();
+    const is_admin = currentUser.is_admin
 
     const [categoryName, setCategoryName] = useState({
         name: ""
@@ -29,14 +30,14 @@ function EditCategoryForm() {
                 const { data } = await axiosReq.get(`/categories/${id}/`);
                 const { name } = data;
 
-                currentUser.is_admin ? setCategoryName({ name }) : history.push("/");
+                is_admin ? setCategoryName({ name }) : history.push("/");
             } catch (err) {
                 // console.log(err);
             }
         };
 
         handleMount();
-    }, [history, currentUser.is_admin, id]);
+    }, [history, is_admin, id]);
 
 
     const handleChange = (e) => {

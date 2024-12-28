@@ -19,7 +19,7 @@ Prior to developing Horizons, I had 3 major goals in mind that I wanted to achie
     + [Validator testing](#validator-testing)
     + [W3C CSS validator](#w3c-css-validator)
     + [ESLint JavaScript validator](#eslint-javascript-validator)
-    + [Lighthouse testing](#lighthouse-testing)
+    + [WAVE Accessibility Testing](#wave-web-accessiblity-testing)
     + [Resolved bugs](#resolved-bugs)
     + [Unresolved bugs](#unresolved-bugs)
 
@@ -38,7 +38,7 @@ Prior to developing Horizons, I had 3 major goals in mind that I wanted to achie
 - All JavaScript files, including `App.js` and `index.js` were ran through ESLint within the CLI. ESLint was installed, and upon running no errors were found in the code.
 
 ### WAVE Web Accessiblity Testing
-
+All issues that were appropiate were rectified.
 Testing with the WAVE validation revealed the following issues:
 
 **Issues Fixed**
@@ -61,7 +61,13 @@ Testing with the WAVE validation revealed the following issues:
 
 - CreateCommetForm missing form control label - added label to fix this issue but the issue is still show despite label being added.
 
-### Lighthouse Testing
+- CreatePostForm missing form control label
+
+- Searchbar missing form control label
+
+- CreateCategoryForm missing form control label
+
+- ProfileEditForm missing form control label
 
 ### Resolved Bugs
 
@@ -73,3 +79,8 @@ Testing with the WAVE validation revealed the following issues:
 | 4 | When viewing a post as user that wasn't an admin or the owner of a post, a 0 was appearing where the edit-delete dropdown should be appearing. | It turns out, I was using the OR operator wrong in the ternary to check if the user was an owner or admin. I just had to wrap the conditional statement in a pair of parenthesises. | Yes |
 
 ### Unresolved Bugs
+
+| ID | Issue | Fixed |
+| --- | --- | --- |
+| 1 | When refreshing the `CategoryEditForm.js` component, the app breaks and displays a white screen as the `is_admin` parameter is set to `null` on refresh. I have tried my best to debug this but I am not sure why this is happening. I have compared the `useEffect` hook to that of the hook in the `PostEditForm.js` component - as both forms are similar, but I cannot find out why it is crashing. The functionality still works as expected and the admin user is still able to update the category | Not Fixed |
+| 2 | When editing comments, if the user has more than one comment on a post, they are able to open up the edit comment form on both comments. A better user experience would close the previous edit comment form, and then open the newly selected one. | Not Fixed |
