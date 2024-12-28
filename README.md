@@ -63,6 +63,8 @@ Prior to developing Horizons, I had 3 major goals in mind that I wanted to achie
       - [NotFound.js](#notfoundjs)
     + [CRUD functionality](#crud-functionality)
     + [Future improvements and features](#future-improvements-and-features)
+      - [Short Term Improvements](#short-term-improvements)
+      - [Long Term Improvements](#long-term-improvements)
   * [Frameworks, libraries and dependencies](#frameworks--libraries-and-dependencies)
   * [React features used to enhance user experience](#react-features-used-to-enhance-user-experience)
     + [Custom hooks](#custom-hooks)
@@ -568,6 +570,24 @@ Horizons features full Create, Read, Update and Delete functionality, via the UI
 - **Delete** - Authenticated users will be able to delete their own posts and comments - providing they are the owner of the respective data. Admin users will have the permission to delete categories too. Furthermore, admin users have the permission to delete another user's post in the view of safeguarding if they feel it is neccessary, regardless of whether they are the post owner or not.
 
 ### Future improvements and features
+
+#### Short Term Improvements
+The following fixes and improvements would be made in the short term as a high priority if more time were available:
+
+- Alert feature - give the user a clear alert upon any neccessary form of CRUD functionality, for example 'post updated' or 'post deleted'.
+- Add icon to categories - this would allow admin users to attach a small icon or image to each category upon creation to make them more recognisable.
+- Add a like feature to comments.
+- Add an unlike, or down-vote, feature to posts.
+- Add further customisation fields to user's profiles.
+- Add admin or user status for users in the navbar.
+
+#### Long Term Improvements
+Lower priority, longer term features to be added are:
+
+- Allow users to send messages to each other through a messaging component.
+- Allow users to export and share their friendcode between applications.
+- Add more admin specific features.
+- Add functionality for admins to make other user's admins - with precautions.
 
 ## Frameworks, Libraries & Dependencies
 
