@@ -52,6 +52,7 @@ Prior to developing Horizons, I had 3 major goals in mind that I wanted to achie
     + [Update Profile](#update-profile)
     + [Change Username](#change-username)
     + [Change Password](#change-password)
+    + [Infinite Scroll](#inifinite-scroll)
     + [Re-use of components](#re-use-of-components)
     + [CRUD functionality](#crud-functionality)
     + [Future improvements and features](#future-improvements-and-features)
@@ -483,8 +484,69 @@ The form contains a validation method to ensure that both passwords match before
 
 Upon submiting the form, the user will need to log in using the updated password from then on.
 
+### Inifinite Scroll
+
+When loading both posts and comments, an infinite scroll component has been implemeneted to fetch more data for the user. This component adds to user experience as posts and comments are seamlessly added without the user having to click anywhere to load additional data.
 
 ### Re-use of components
+
+A number of components were created and re-used to minimise code duplication.
+
+#### Asset.js
+
+- The `Asset.js` component refers to images and loading spinners that are used throughout the application. The component takes multiple props, these being `spinner`, `src`, `message` and `height`.
+
+- If `spinner` is passed to the component then the asset component will display a spinner in it's place - this indicating to the user that data is currently being fetched.
+
+- If `src` and `height` are passed to the prop, then the asset component will render an image respectively. If no `height` is passed then the height will default to the height of the source image passed.
+
+#### Avatar.js
+
+- THe `Avatar.js` component refers to the image next to a users profile. The component is used extensivelt throughout the `PopularProfiles.js` and `ProfilePage.js` components.
+
+- The component takes the props of `src`. `height` and `text` with the height component defaulting to 45 if not height is passed.
+
+- The `Avatar.js` component adds a nice touch to the application whereby users can differentiate between profiles based on the avatar image. The `src` prop for the component is defaulted to the `leaf_img` as per instructions via the image field within the backend upon sign up. When users edit their profiles, this is when they will be able to change their avatar image.
+
+#### CategoryList.js
+
+- The `CategoryList.js` component fetches and renders the list of categories for the user. This component saves dulication of code as fetching the current categories is a common theme throughout the web-aplication, therefore having a `CategoriyList.js` component is pivotal.
+
+- The component is used primarily within the `CreateCategory.js`, `EditCategory.js` and `PostsPage.js` components. Rendering this components means that the categories will not need to be rendered elsewhere otherwise.
+
+#### DeletionModal.js
+
+- The `DeletionModal.js` component is a bootstrap imported component. The component ensures that users which intend to delete a piece of data have the chance to confirm it in the event that it was a misclick.
+
+- The component takes the props of `HandleDelete` and `DropDown`. These two props are to differentiate between where the component is being called. THe `HandleDelete` prop ensures the component is called during the handleDelete function within the `CategoryEdit.js` component.
+
+- Otherwise, the `DropDown` prop ensures that the component is called when the delete button clicked is being called through the `MoreDropdown.js` component.
+
+#### MoreDropdown.js
+
+- The `MoreDropdown.js` component provides the user with a neat dropdown menu where they can either choose to edit or delete a post. As seen in both the `Post.js` component and the `Comment.js` component, the `MoreDropdown.js` component provides a means for the user updating and deleting the post.
+
+- Upon clicking the edit button the user will be directed to the respective edit page of the component they wish to update.
+
+- When clicking the delete button the user will be met with the aforementioned `DeletionModal.js` which ensures the user does have an intention of deleting the data in question.
+
+- Within the component, 3 functions are rendered. The initial `NoreDropdown` function, but also the `ProfileDropdown` component and the `CategoryDropdown` component. These functions are slightly different to the default `MoreDropdown` component as they direct to different urls upon being clicked.
+
+#### NavBar.js
+
+- The `NavBar.js` component conditionally renders the navbar to the user depending on multiple factors.
+
+- On being unauthenticated, the user will be greeted with `home`, `sign-in` and `sign-up` - allowing the user to either sign in or sign up and create an account.
+
+- Upon logging in and being an authenticated user, the user will then be greeted with `home`, `create-post ,`feed`, `liked` and `profile`. Attempting to access either the `sign-in` or `sign-up` urls will result in the user being redirected to the home page.
+
+- Finally, if the user logging in is of an admin status, upon authentication they will be greeted with the aforementioned navbar links, however they will also see the `create-category` link too. This is because only admins will have the option to create new categories.
+
+- Conditional rendering is used to render all the above functionality depending on the user's logged in status.
+
+#### NotFound.js
+
+- The `NotFound.js` component displays a neat `page not found` page for the user, in place of a 404 error being displayed.
 
 ### CRUD Functionality
 
