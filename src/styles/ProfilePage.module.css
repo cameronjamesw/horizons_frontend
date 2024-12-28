@@ -17,13 +17,13 @@
 }
 
 .Link:hover {
-    color: #356933;
+    color: #01c503;
     cursor: pointer;
 }
 
 .DetailField {
     background-color: #000;
-    border: #356933 2px solid;
+    border: #01c503 2px solid;
     color: #fff;
     border-radius: 10px;
     min-height: 20px;
@@ -31,7 +31,7 @@
 
 .DetailFieldBio {
     background-color: #000;
-    border: #356933 2px solid;
+    border: #01C503 2px solid;
     color: #fff;
     padding: 10px;
     border-radius: 10px;

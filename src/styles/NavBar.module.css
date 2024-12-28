@@ -8,7 +8,7 @@
 }
 
 h1 {
-    color: #356933;
+    color: #01C503;
 }
 
 .NavLink, i {
@@ -21,13 +21,13 @@ h1 {
 .NavLink:hover {
     cursor: pointer;
     transition: color ease-in-out 0.3s;
-    color: #356933;
+    color: #01C503;
 }
 
 i:hover {
     cursor: pointer;
     transition: color ease-in-out 0.3s;
-    color: #356933;
+    color: #01C503;
 }
 
 .NavBurger {
@@ -35,5 +35,5 @@ i:hover {
 }
 
 .Active {
-    color: #356933
+    color: #01C503
 }

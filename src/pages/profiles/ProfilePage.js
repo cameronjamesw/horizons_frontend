@@ -60,6 +60,7 @@ function ProfilePage() {
                         className={styles.ProfileImage}
                         roundedCircle
                         src={profile?.image}
+                        alt={`${profile?.username}'s avatar`}
                     />
                 </Col>
                 <Col lg={6}>
@@ -138,7 +139,7 @@ function ProfilePage() {
     const mainProfilePosts = (
         <>
             <hr />
-            <p className={`${styles.PostsText} text-left`}>{profile?.owner}'s posts:</p>
+            <h3 className={`${styles.PostsText} text-left`}>{profile?.owner}'s posts:</h3>
             <hr />
             {profilePosts.results.length ? (
                 <InfiniteScroll
