@@ -40,9 +40,15 @@ Prior to developing Horizons, I had 3 major goals in mind that I wanted to achie
     + [View Post](#view-post)
     + [Like Post](#liking-a-post)
     + [Favourite A Post](#favourite-a-post)
+    + [View Favourites](#view-favourites)
     + [Edit-Delete Dropdown](#edit--delete-post-dropdown)
     + [Edit Post](#edit-post)
     + [Delete Post](#delete-post)
+    + [Follow & Unfollow Users](#followunfollow-a-user)
+    + [View Profile](#view-profile)
+    + [Update Profile](#update-profile)
+    + [Change Username](#change-username)
+    + [Change Password](#change-password)
     + [Re-use of components](#re-use-of-components)
     + [CRUD functionality](#crud-functionality)
     + [Future improvements and features](#future-improvements-and-features)
@@ -327,6 +333,20 @@ The initial state of the favourite button will be an outline of a star, upon hov
 
 When favouriting a post, the user's favourites_count will be increased, and this is reflected on their profile page (more on this later). Furthermore, the favourited post will be added to the user's favourites list, and this will be accessible within their own profile.
 
+### View Favourites
+
+![A screenshot of the favourite count](/src/assets/readme_assets/features_images/favourites-count-prof.png)
+
+In order for the user to view their favourites, they will need to navigate towards their profile, and upon the profile rendering, they will see a some data regarding their profile. One piece of data in particular is the favourties_count which is displayed om a users profile (see above). Upon hovering over the favourites_count, the count will turn green, along with the cursor becoming a pointer, suggesting to the user that they can click on this.
+
+When clickng on the favourites, the user will be redirected to the `favourites/` url path, and here the user's favourited posts will be displayed to them (see below). When the user unfavourites a post within their favourites list, it will no longer be there after re-rendering this page.
+
+![A screenshot of the favourites](/src/assets/readme_assets/features_images/view-favourites.png)
+
+To ensure good sight integrity, the user will only be able to view their own favourites. In turn, when viewing another user's profile, their favourites count will be hidden, as this is personal to that user (see below).
+
+![A screenshot of another user's profile without favourite's count](/src/assets/readme_assets/features_images/view-favs-not-prof.png)
+
 ### Edit & Delete Post Dropdown
 
 ![Screenshot of the edit and delete dropdown](/src/assets/readme_assets/features_images/edit-delete%20post.png)
@@ -363,6 +383,68 @@ When clicking the delete post option from the edit-delete dropdown, the user is 
 Clicking anywhere on the screen will close the modal without causing the post to be deleted, and then clicking on delete will then delete the post.
 
 This reassurance of decision ensures a positive user experience.
+
+### Follow/Unfollow A User
+
+Authenticated users will be able to follow other users throughout the application. Users on a desktop will be able to follow users through the popular profiles component, previous mentioned. As seen below, the follow button is found to the right-hand side of the user's username.
+
+![A screenshot of the popular profiles component](/src/assets/readme_assets/features_images/follow-user-pop-profile.png)
+
+Alternatively, and for mobile users, users can follow a user by viewing their profile, and clicking the follow button which is located in the top right of their profile page (see below).
+
+![A screenshot of the profile page, with attention drawn to the follow button](/src/assets/readme_assets/features_images/follow-user-profile.png)
+
+When clicking follow on a user, both components aforementioned update with the relevent information. The `follow` button will change to `unfollow`, and the followers and following count of the respective profiles will also update. This is also true for when the user unfollows a user.
+
+Upon following a user, the followed user's posts will then appear in the previously mentioned `/feed` path when viewing the posts feed. Once a user is unfollowed, their posts will no longer appear in the feed understandably.
+
+It is also worth noting that the user will not be able to follow their own profile (see above), and this is referenced in the image above.
+
+### View Profile
+
+![A screenshot of a user's default profile](/src/assets/readme_assets/features_images/view-default-profile.png)
+
+When clicking on a user's avatar, the user will be able to view the profile of the user in question. Upon rendering, the user's default avatar and stats will be shown to the viewer - these stats include `posts count`, `followers count` and `following count`.
+
+If the user has posted any content, these posts will also be rendered underneath the profile component too, for the user to interact with.
+
+![A screenshot of a user's completed profile](/src/assets/readme_assets/features_images/view-complete-prof.png)
+
+Once the user has had the chance to update their profile, their profile will take on a different view (see above).
+
+The user's `name`, `island name`, `friendcode` and `bio` will be rendered to the viewer along with an updated `avatar`. The bio field is not compulsory for the profile owner to fill out, so it may be rendered despite having no content if the owner decides so.
+
+As eluded to earlier, if the user is viewing their **own** profile, then their `favourites_count` will also be rendered for them.
+
+### Update Profile
+
+![A screenshot of the update profile form](/src/assets/readme_assets/features_images/update-profile.png)
+
+When viewing their own profile, users will be able to update their profile. If they are doing this for the first time then they will have the chance to fill in the aforementioned form feilds of `name`, `island name`, `friendcode` and `bio`.
+
+The form has validation methods to ensure that the friendcode field is no greater than 12 characters - as a Nintendo friendcode is 12 characters in length. The form will not post otherwise.
+
+Furthermore, the user does not need to fill in the bio field if they do not choose to - this will render an empty bio field for viewers; however, the other fields will be populated.
+
+Upon submitting the form the user will be returned to their profile page with the relevent data now being rendered to them.
+
+### Change Username
+
+![A screenshot of the change username form](/src/assets/readme_assets/features_images/update-username.png)
+
+Here the user is able to update their username if they feel the need. This form is accessed through the owner's profile.
+
+Upon submitting the form, they will then be required to log in with that new username from then on.
+
+### Change Password
+
+![A screenshot of the change password form](/src/assets/readme_assets/features_images/change-password.png)
+
+Here the user can change their password, this form is accessed through the owner's profile.
+
+The form contains a validation method to ensure that both passwords match before submission. THe form will bounce otherwise.
+
+Upon submiting the form, the user will need to log in using the updated password from then on.
 
 
 ### Re-use of components
