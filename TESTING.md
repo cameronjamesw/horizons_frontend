@@ -27,6 +27,27 @@ Prior to developing Horizons, I had 3 major goals in mind that I wanted to achie
 
 ### Manual Testing
 
+**Sign Up Form Testing**
+
+| Test ID | Test Case | Expected Outcome | Actual Outcome | Pass |
+| --- | --- | --- | --- | --- |
+| 1 | Sign Up with a new username and password | Success, redirected to log in page | Successfully sign up, redirected to log in page | Yes |
+| 2 | Sign Up with an already existing name | Form bounces, with error displayed | A user with that username already exists error message is displayed | Yes |
+| 3 | Sign Up with passwords that dont match | Form bounces, with relevent error displayed | Passwords do not match error displayed | Yes |
+| 4 | Sign Up while leaving form fields blank | Form bounces as fields are blank | These fields may not be left blank error message is displayed | Yes |
+| 5 | Try to navigate to posts/create/ endpoint whilst being unauthenticated | Redirected to home page | Redirected to home page as not authenticated | Yes |
+| 6 | Click the 'Already have an account? Sign in!' link | Render the sign in form | Renders the sign in form upon being clicked | Yes |
+
+**Sign In Form Testing**
+
+| Test ID | Test Case | Expected Outcome | Actual Outcome | Pass |
+| --- | --- | --- | --- | --- |
+| 7 | Log in with valid credentials | Redirected to home page | Sign in successful, redirected to home page | Yes |
+| 8 | Log in with invalid credentials | Form bounces with relevent error message | Unable to log in with provided credentials | Yes |
+| 9 | Attempt to log in while leaving form blank | Form bounces with relevent error message | These fields may not be blank error message shown | Yes |
+| 10 | Try to navigate to posts/create/ endpoint whilst being unauthenticated | Redirected to home page | Redirected to home page as not authenticated | Yes |
+| 11 | Click the 'Don't have an account? Sign Up Now!' link | Render the sign up form | Renders the sign up form upon being clicked | Yes |
+
 ### Validator Testing
 
 ### W3C CSS Validator
