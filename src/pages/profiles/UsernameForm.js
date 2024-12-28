@@ -1,25 +1,31 @@
 import React, { useEffect, useState } from "react";
-
 import {Alert, Button, Col, Container, Form, Row} from "react-bootstrap";
 
 import { useHistory, useParams } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
-import {
-  useCurrentUser,
-  useSetCurrentUser,
-} from "../../contexts/CurrentUserContext";
-
+import { useCurrentUser, useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
+/**
+ * Renders the username form for the user
+ */
 const UsernameForm = () => {
+  // Sets username
   const [username, setUsername] = useState("");
+
+  // Sets errors
   const [errors, setErrors] = useState({});
 
   const history = useHistory();
+
+  // Gets user's ID from URL
   const { id } = useParams();
 
+  // Gets currentUser from useCurrentUser hook
   const currentUser = useCurrentUser();
+
+  // Sets currentUser using the useSetCurrentUser hook
   const setCurrentUser = useSetCurrentUser();
 
   useEffect(() => {

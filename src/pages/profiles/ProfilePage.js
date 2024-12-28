@@ -1,37 +1,54 @@
 import React, { useEffect, useState } from "react";
-
+import { Link, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import {Col, Row, Container, Button, Image} from "react-bootstrap";
-import Asset from "../../components/Asset";
-
-import styles from "../../styles/ProfilePage.module.css";
-import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 import PopularProfiles from "./PopularProfiles";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useProfileData, useSetProfileData } from "../../contexts/ProfileDataContext";
-import { Link, useParams } from "react-router-dom/cjs/react-router-dom.min";
-
+import Asset from "../../components/Asset";
+import styles from "../../styles/ProfilePage.module.css";
+import appStyles from "../../App.module.css";
+import btnStyles from "../../styles/Button.module.css";
 import Post from "../posts/Post";
-import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/resetti.png";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
 import PopularCategories from "../categories/PopularCategories";
 
+/**
+ * Renders the profile page for the user
+ */
 function ProfilePage() {
+    // set hasLoaded, defaults to false
     const [hasLoaded, setHasLoaded] = useState(false);
+
+    // Gets currentuser
     const currentUser = useCurrentUser();
+
+    //Gets profile ID from the URL
     const { id } = useParams();
+
+    // Destructures functions from useSetProfileData hook
     const { setProfileData, handleFollow, handleUnfollow } = useSetProfileData();
+
+    // Destructures pageProfile from useProfileData hook
     const { pageProfile } = useProfileData();
+
+    // Destructures profi;e from pageProfile
     const [profile] = pageProfile.results;
+
+    // Establishes if current user is the profile owner
     const is_owner = currentUser?.username === profile?.owner;
 
+    // Sets profilePosts
     const [profilePosts, setProfilePosts] = useState({ results: [] });
 
     useEffect(() => {
+        /**
+         * Fetches profile and the posts relating to said profile
+         */
         const fetchData = async () => {
             try {
                 const [{ data: pageProfile }, { data: profilePosts }] = await Promise.all([
@@ -51,6 +68,7 @@ function ProfilePage() {
         fetchData();
     }, [id, setProfileData]);
 
+    // Renders the mainProfile for the user, this is a completed profile
     const mainProfile = (
         <>
             {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
@@ -114,6 +132,7 @@ function ProfilePage() {
         </>
     );
 
+    // Renders the profileDetails if they have been inputted by user
     const profileDetails = (
         <>
             < hr />
@@ -136,6 +155,7 @@ function ProfilePage() {
         </>
     )
 
+    // Renders profile posts
     const mainProfilePosts = (
         <>
             <hr />

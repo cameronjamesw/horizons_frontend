@@ -1,24 +1,43 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
-import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
+import { Alert, InputGroup, Form } from "react-bootstrap";
 
 import styles from "../../styles/CommentCreateEditForm.module.css";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
-import { Alert } from "react-bootstrap";
 
+/**
+ * This function renders the CommentCreateForm and posts
+ * data to the relevent endpoint.
+ */
 function CommentCreateForm(props) {
-    const { post, setPost, setComments, profileImage, profile_id } = props;
+    // Destructure props
+    const {
+        post,
+        setPost,
+        setComments,
+        profileImage,
+        profile_id
+    } = props;
+
+    // Sets the content of the comment
     const [content, setContent] = useState("");
 
+    // Sets the errors
     const [errors, setErrors] = useState({})
 
+    /**
+     * This function handles the change in the comment
+     * form and takes an event as a parameter
+     */
     const handleChange = (event) => {
         setContent(event.target.value);
     };
 
+    /**
+     * This function handles the submittion of the
+     * comment form and takes an event as a parameter
+     */
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {

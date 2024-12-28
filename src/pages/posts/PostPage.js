@@ -1,30 +1,43 @@
 import React, { useEffect, useState } from "react";
-
 import {Col, Row, Container} from "react-bootstrap";
+import { useParams } from "react-router";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 import appStyles from "../../App.module.css";
-import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Post from "./Post";
 import Comment from "../comments/Comment";
-
 import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import PopularCategories from "../categories/PopularCategories";
 
+/**
+ * This function rendera the Post component
+ */
 function PostPage() {
+  // Gets the id of the post from the url
   const { id } = useParams();
+
+  // Sets post
   const [post, setPost] = useState({ results: [] });
 
+  // Gets current user
   const currentUser = useCurrentUser();
+
+  // Gets users' profile image
   const profile_image = currentUser?.profile_image;
+
+  // Sets comments
   const [comments, setComments] = useState({ results: [] });
 
   useEffect(() => {
+    /**
+     * The handleMount fumction fetches the comment
+     * and post data and then sets them accordingly
+     */
     const handleMount = async () => {
       try {
         const [{ data: post }, { data: comments }] = await Promise.all([

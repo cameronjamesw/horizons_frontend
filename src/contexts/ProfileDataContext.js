@@ -3,21 +3,31 @@ import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { useCurrentUser } from "./CurrentUserContext";
 import { followHelper, unfollowHelper } from "../utils/utils";
 
+/* Code in this file adapted from the Code Institute 'Moments' React walkthrough project.
+Create a profile data context to allow profile details to be accessed throughout the app */
+
+//  Contexts and hooks
 export const ProfileDataContext = createContext();
 export const SetProfileDataContext = createContext();
-
 export const useProfileData = () => useContext(ProfileDataContext);
 export const useSetProfileData = () => useContext(SetProfileDataContext);
 
+/**
+ * Provider to give context to children
+ */
 export const ProfileDataProvider = ({ children }) => {
   const [profileData, setProfileData] = useState({
-    // we will use the pageProfile later
     pageProfile: { results: [] },
     popularProfiles: { results: [] },
   });
 
+  // Gets current user
   const currentUser = useCurrentUser();
 
+  /**
+   * Handles the follow request, takes the clicked
+   * profile as a parameter
+   */
   const handleFollow = async (clickedProfile) => {
     try {
       const { data } = await axiosRes.post("/followers/", {
@@ -43,6 +53,10 @@ export const ProfileDataProvider = ({ children }) => {
     }
   };
 
+  /**
+   * Handles the unfollow request, takes the clicked profile
+   * as a parameter
+   */
   const handleUnfollow = async (clickedProfile) => {
     try {
       await axiosRes.delete(`/followers/${clickedProfile.following_id}/`);
@@ -82,6 +96,7 @@ export const ProfileDataProvider = ({ children }) => {
     handleMount();
   }, [currentUser]);
 
+  // Return providers for children to subscribe to
   return (
     <ProfileDataContext.Provider value={profileData}>
       <SetProfileDataContext.Provider value={{ setProfileData, handleFollow, handleUnfollow }}>

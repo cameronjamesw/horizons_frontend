@@ -10,11 +10,19 @@ import useClickOutsideToggle from '../hooks/useClickOutsideToggle'
 import { removeTokenTimestamp } from '../utils/utils'
 
 const NavBar = () => {
+    // Gets the current user auth status
     const currentUser = useCurrentUser();
+
+    // Sets the current user auth status
     const setCurrentUser = useSetCurrentUser();
 
+    // Set state of the expanded dropdown
     const {expanded, setExpanded, ref} = useClickOutsideToggle();
-
+    
+    /**
+     * This function handles the user's sign out by
+     * post data to the relevent endpoint.
+     */
     const handleSignOut = async () => {
         try {
             await axios.post('/dj-rest-auth/logout/');
@@ -25,6 +33,7 @@ const NavBar = () => {
         }
     }
 
+    // The variable displays the addPostIcom to authenticated users
     const addPostIcon = (
         <>
             <NavLink
@@ -36,6 +45,7 @@ const NavBar = () => {
         </>
     )
 
+    // This varaible displays the addCategoryIcon to admin users
     const addCategoryIcon = [
         <>
             <NavLink
@@ -47,6 +57,7 @@ const NavBar = () => {
         </>
     ]
 
+    // Displays the LoggedInIcons to authenticated users
     const loggedInIcons = <>
         <NavLink
             className={styles.NavLink}
@@ -73,6 +84,7 @@ const NavBar = () => {
         </NavLink>
     </>
 
+    // Displays LoggedOutIcons to unauthenticated users
     const loggedOutIcons = <>
         <NavLink
             className={styles.NavLink}

@@ -1,24 +1,35 @@
 import React, { useState } from "react";
-
 import { Form, Alert, Button, Col, Row, Container } from "react-bootstrap";
-
-import styles from "../../styles/SignInUpForm.module.css";
-import appStyles from "../../App.module.css";
-import { axiosReq } from "../../api/axiosDefaults";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useRedirect } from "../../hooks/useRedirect";
 
+import { axiosReq } from "../../api/axiosDefaults";
+import styles from "../../styles/SignInUpForm.module.css";
+import appStyles from "../../App.module.css";
+
+/**
+ * This function creates a new category
+ */
 function CreateCategoryForm() {
+    // Redirects unauthenticated users that try to access this URL
     useRedirect('loggedOut');
+
+    // Sets category name
     const [categoryName, setCategoryName] = useState({
         name: ""
     });
 
+    // Sets errors
     const [errors, setErrors] = useState({})
 
+    // Destructures the category name
     const { name } = categoryName;
     const history = useHistory();
 
+    /**
+     * This function handles the change within the
+     * category form, takes an event as a parameter.
+     */
     const handleChange = (e) => {
         setCategoryName({
             ...categoryName,
@@ -26,6 +37,11 @@ function CreateCategoryForm() {
         })
     };
 
+    /**
+     * This function handles the submit of the create category
+     * form. If data is valid then the form will submit to the categories
+     * endpoint. User will be redirected to the home page upon submission.
+     */
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();

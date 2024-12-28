@@ -1,19 +1,30 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
+
 import styles from "../../styles/Profile.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
-import { Button } from "react-bootstrap";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
 
+/**
+ * This function renders the profile component for the user
+ */
 const Profile = (props) => {
+  // Destructure props
   const { profile, mobile, imageSize = 55 } = props;
+
+  // Destructure profile
   const { id, following_id, image, owner } = profile;
 
+  // Sets current user
   const currentUser = useCurrentUser();
+
+  // Determines if the current user is the owner of the profile
   const is_owner = currentUser?.username === owner;
 
+  // Destructures the useSetProfileData object
   const { handleFollow, handleUnfollow } = useSetProfileData();
 
   return (

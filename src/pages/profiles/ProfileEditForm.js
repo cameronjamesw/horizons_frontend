@@ -1,24 +1,29 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useHistory, useParams } from "react-router-dom";
-
-import {Form, Button, Image, Row, Col, Container, Alert} from "react-bootstrap";
+import { Form, Button, Image, Row, Col, Container, Alert } from "react-bootstrap";
 
 import { axiosReq } from "../../api/axiosDefaults";
-import {
-    useCurrentUser,
-    useSetCurrentUser,
-} from "../../contexts/CurrentUserContext";
-
+import { useCurrentUser, useSetCurrentUser } from "../../contexts/CurrentUserContext";
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
+/**
+ * This function renders the profile edit form
+ */
 const ProfileEditForm = () => {
+    // Gets current user
     const currentUser = useCurrentUser();
+
+    // Sets the current user
     const setCurrentUser = useSetCurrentUser();
+
+    // Gets the profile id from the URL
     const { id } = useParams();
+
     const history = useHistory();
     const imageFile = useRef();
 
+    // Sets the profile data
     const [profileData, setProfileData] = useState({
         name: "",
         island_name: "",
@@ -26,11 +31,24 @@ const ProfileEditForm = () => {
         bio: "",
         image: "",
     });
-    const { name, island_name, friend_code, bio, image } = profileData;
 
+    // Destructures the profileData
+    const {
+        name,
+        island_name,
+        friend_code,
+        bio,
+        image
+    } = profileData;
+
+    // Sets errors
     const [errors, setErrors] = useState({});
 
     useEffect(() => {
+        /**
+         * This function sets the profile data upon mount and then
+         * prepopulates the form fields accordingly
+         */
         const handleMount = async () => {
             if (currentUser?.profile_id?.toString() === id) {
                 try {
@@ -49,6 +67,10 @@ const ProfileEditForm = () => {
         handleMount();
     }, [currentUser, history, id]);
 
+    /**
+     * This function handles the change of the profileEditForm
+     * and takes an event as a parameter
+     */
     const handleChange = (event) => {
         setProfileData({
             ...profileData,
@@ -56,6 +78,11 @@ const ProfileEditForm = () => {
         });
     };
 
+    /**
+     * This function handles the submission of the
+     * ProfileEditForm and posts data to the relevent
+     * end point
+     */
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData();
@@ -81,6 +108,7 @@ const ProfileEditForm = () => {
         }
     };
 
+    // Renders the text fields 
     const textFields = (
         <>
             <Form.Group>
@@ -164,10 +192,10 @@ const ProfileEditForm = () => {
                         <Form.Group>
                             {image && (
                                 <figure>
-                                    <Image 
-                                    src={image}
-                                    alt="image"
-                                    fluid />
+                                    <Image
+                                        src={image}
+                                        alt="image"
+                                        fluid />
                                 </figure>
                             )}
                             {errors?.image?.map((message, idx) => (

@@ -1,26 +1,28 @@
 import React, { useRef, useState } from "react";
-
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-
-import UploadIcon from "../../assets/upload-icon.jpeg";
-import { axiosReq } from '../../api/axiosDefaults'
+import {Form, Button, Row, Col, Container, Alert, Image } from "react-bootstrap";
+import { useRedirect } from "../../hooks/useRedirect";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
-import { Alert, Image } from "react-bootstrap";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import UploadIcon from "../../assets/upload-icon.jpeg";
+import { axiosReq } from '../../api/axiosDefaults'
 import CategoryList from "../../components/CategoryList";
-import { useRedirect } from "../../hooks/useRedirect";
 
+/**
+ * This function creates a post and posts
+ * the data to the relevent endpoint
+ */
 function PostCreateForm() {
+  // Redirects unauthenticated users
   useRedirect('loggedOut');
+
+  // Sets errors
   const [errors, setErrors] = useState({});
+
+  // Sets the formDetail
   const [formDetail, setFormDetail] = useState({
     title: "",
     category: "",
@@ -28,11 +30,22 @@ function PostCreateForm() {
     image: ""
   })
 
-  const { title, category, content, image } = formDetail;
+  // Destructures formDetail object
+  const { 
+    title, 
+    category, 
+    content, 
+    image 
+  } = formDetail;
 
+  // Sets the ref for the image input
   const imageInput = useRef(null);
   const history = useHistory();
 
+  /**
+   * This function handles the form change and takes the event
+   * as a parameter
+   */
   const handleChange = (e) => {
     setFormDetail({
       ...formDetail,
@@ -40,6 +53,10 @@ function PostCreateForm() {
     })
   };
 
+  /**
+   * This function handles the change of the image field
+   * and takes an event as a parameter
+   */
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
@@ -50,6 +67,11 @@ function PostCreateForm() {
     }
   };
 
+  /**
+   * This function handles the category change and
+   * updates the category field within the formDetail object.
+   * This function takes the event as a parameter.
+   */
   const handleCategoryChange = (event) => {
     setFormDetail({
       ...formDetail,
@@ -57,6 +79,11 @@ function PostCreateForm() {
     })
   }
 
+  /**
+   * This function handles the submission of the forn
+   * and posts the data to the relevent endpoint. The
+   * function takes an event as a parameter.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
@@ -78,6 +105,7 @@ function PostCreateForm() {
   };
 
 
+  // Renders the textFields when called
   const textFields = (
     <div className="text-center">
       <Form>

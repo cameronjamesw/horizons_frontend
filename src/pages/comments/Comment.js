@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Media } from "react-bootstrap";
 import { Link } from "react-router-dom";
+
 import Avatar from "../../components/Avatar";
 import styles from "../../styles/Comment.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
@@ -8,7 +9,11 @@ import { MoreDropdown } from "../../components/MoreDropdown";
 import { axiosRes } from "../../api/axiosDefaults";
 import CommentEditForm from "./CommentEditForm";
 
+/**
+ * This function creates the commend component
+ */
 const Comment = (props) => {
+    // props are destructured
     const {
         profile_id,
         profile_image,
@@ -20,11 +25,23 @@ const Comment = (props) => {
         setComments,
     } = props;
 
+    // Sets the state of the showEditForm
     const [showEditForm, setShowEditForm] = useState(false);
+
+    // Gets current user
     const currnetUser = useCurrentUser();
+
+    // Establish if current user is owner of comment
     const is_owner = currnetUser?.username === owner;
+
+    // Establish if current user is an admin
     const is_admin = currnetUser?.is_admin;
 
+    /**
+     * Function handles the deletion of a comment posting
+     * to the relevent end point. Then sets the post count
+     * to the appropiate number after deletion.
+     */
     const handleDelete = async () => {
         try {
             await axiosRes.delete(`/comments/${id}/`);

@@ -1,29 +1,41 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
-import styles from "../../styles/SignInUpForm.module.css";
-import appStyles from "../../App.module.css";
-
-import SignUpImg from '../../assets/SignUpImg.webp'
-
 import { Form, Button, Image, Col, Row, Container, Alert } from "react-bootstrap";
-import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useRedirect } from "../../hooks/useRedirect";
 
+import styles from "../../styles/SignInUpForm.module.css";
+import appStyles from "../../App.module.css";
+import SignUpImg from '../../assets/SignUpImg.webp'
+import axios from "axios";
+
+/**
+ * This function handles the signup data. Valid data is posted
+ * to the relevent endpoint. Invalid forms will bounce.
+ */
 const SignUpForm = () => {
+    // Redirects authenticated users if they try to access this component.
     useRedirect('loggedIn');
+
+    // Sets signup data
     const [signUpData, setSignUpData] = useState({
         username: "",
         password1: "",
         password2: "",
     });
+
+    // Destructure sign up data
     const { username, password1, password2 } = signUpData;
 
+    // Sets errors
     const [errors, setErrors] = useState({});
 
     const history = useHistory();
 
+    /**
+     * This function handles the change of the signup
+     * form data. Takes an event as the parameter.
+     */
     const handleChange = (event) => {
         setSignUpData({
             ...signUpData,
@@ -31,6 +43,12 @@ const SignUpForm = () => {
         });
     };
 
+    /**
+     * This function handles the submittion of the signup
+     * form. It takes an event sa the parameter. Posts
+     * the data to the relevent end point and creates a
+     * user instance on the backend.
+     */
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {

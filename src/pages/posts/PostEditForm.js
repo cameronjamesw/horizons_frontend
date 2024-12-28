@@ -1,24 +1,27 @@
 import React, { useEffect, useRef, useState } from "react";
-
-import {Form, Button, Row, Col, Container} from "react-bootstrap";
-
-import UploadIcon from "../../assets/upload-icon.jpeg";
-import { axiosReq } from '../../api/axiosDefaults'
+import { Form, Button, Row, Col, Container, Alert, Image } from "react-bootstrap";
+import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
-import { Alert, Image } from "react-bootstrap";
-import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import UploadIcon from "../../assets/upload-icon.jpeg";
+import { axiosReq } from '../../api/axiosDefaults'
 
+/**
+ * This function edits a post and posts
+ * the data to the relevent endpoint
+ */
 function PostEditForm() {
-
+    // Sets errors
     const [errors, setErrors] = useState({});
 
+    // Sets categories
     const [categories, setCategories] = useState();
 
+    // Sets formDetail
     const [formDetail, setFormDetail] = useState({
         title: "",
         category: "",
@@ -35,19 +38,28 @@ function PostEditForm() {
     const { id } = useParams();
 
     useEffect(() => {
+        /**
+         * This function fetches the data of the form being
+         * edited and populates the fields for the user
+         * upon the component being mounted
+         */
         const handleMount = async () => {
-          try {
-            const { data } = await axiosReq.get(`/posts/${id}/`);
-            const { title, category, content, image, is_owner } = data;
-            is_owner | is_admin ? setFormDetail({ title, category, content, image }) : history.push("/");
-          } catch (err) {
-            // console.log(err);
-          }
+            try {
+                const { data } = await axiosReq.get(`/posts/${id}/`);
+                const { title, category, content, image, is_owner } = data;
+                is_owner | is_admin ? setFormDetail({ title, category, content, image }) : history.push("/");
+            } catch (err) {
+                // console.log(err);
+            }
         };
-    
-        handleMount();
-      }, [history, is_admin, id]);
 
+        handleMount();
+    }, [history, is_admin, id]);
+
+    /**
+    * This function handles the form change and takes the event
+    * as a parameter
+    */
     const handleChange = (e) => {
         setFormDetail({
             ...formDetail,
@@ -55,6 +67,10 @@ function PostEditForm() {
         })
     };
 
+    /**
+    * This function handles the change of the image field
+    * and takes an event as a parameter
+    */
     const handleChangeImage = (event) => {
         if (event.target.files.length) {
             URL.revokeObjectURL(image);
@@ -65,12 +81,17 @@ function PostEditForm() {
         }
     };
 
+    /**
+       * This function handles the category change and
+       * updates the category field within the formDetail object.
+       * This function takes the event as a parameter.
+       */
     const handleCategoryChange = (event) => {
         setFormDetail({
-          ...formDetail,
-          category : event.target.value,
+            ...formDetail,
+            category: event.target.value,
         })
-      }
+    }
 
     useEffect(() => {
         const handleMount = async () => {
@@ -86,6 +107,11 @@ function PostEditForm() {
         handleMount();
     }, [])
 
+    /**
+   * This function handles the submission of the forn
+   * and posts the data to the relevent endpoint. The
+   * function takes an event as a parameter.
+   */
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData();
@@ -109,7 +135,7 @@ function PostEditForm() {
         }
     };
 
-
+    // Renders the text fields
     const textFields = (
         <div className="text-center">
             <Form>
@@ -175,7 +201,7 @@ function PostEditForm() {
             <Button
                 className={`${btnStyles.Button} ${btnStyles.Green}`}
                 type="submit"
-                >
+            >
                 edit
             </Button>
         </div>

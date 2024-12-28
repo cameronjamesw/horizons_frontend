@@ -1,35 +1,52 @@
 import React, { useEffect, useState } from "react";
-
-import {Form, Col, Row, Container} from "react-bootstrap";
+import {Form, Col, Row, Container, Dropdown} from "react-bootstrap";
+import { Link, useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PostsPage.module.css";
 import btnStyles from "../../styles/Button.module.css"
-import { Link, useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import Asset from "../../components/Asset";
 import Post from "./Post";
-
 import NoResults from "../../assets/resetti.png"
-import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
-import { Dropdown } from "react-bootstrap";
 import { useSetCategoryContext } from "../../contexts/CategoryContext";
 import PopularCategories from "../categories/PopularCategories";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
+/**
+ * This function renders the postsPage to the user. It takes
+ * a message and a filter as a parameter, the filter defaults
+ * to an empty string if no filter is passed.
+ */
 function PostsPage({ message, filter = "" }) {
+  // Sets posts
   const [posts, setPosts] = useState({ results: [] });
-  const [hasLoaded, setHasLoaded] = useState(false);
-  const { pathname } = useLocation();
-  const [categories, setCategories] = useState();
-  const setCategory = useSetCategoryContext();
-  const currentUser = useCurrentUser();
 
+  // Sets hasLoaded
+  const [hasLoaded, setHasLoaded] = useState(false);
+
+  // Fetches the pathname
+  const { pathname } = useLocation();
+
+  // Sets categories
+  const [categories, setCategories] = useState();
+
+  // Uses the setCategories hook
+  const setCategory = useSetCategoryContext();
+
+  // Gets current user
+  const currentUser = useCurrentUser();
+  
+  // Sets query
   const [query, setQuery] = useState("");
 
   useEffect(() => {
+    /**
+     * This function fetches the users search request
+     */
     const fetchPosts = async () => {
       try {
         const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`);
@@ -51,6 +68,10 @@ function PostsPage({ message, filter = "" }) {
   }, [filter, pathname, query, currentUser]);
 
   useEffect(() => {
+    /**
+     * This function fetches the categories on mount and
+     * then sets them using the setCategories hook
+     */
     const handleMount = async () => {
       try {
         const [{ data: categories }] = await Promise.all([

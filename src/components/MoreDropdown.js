@@ -17,6 +17,12 @@ const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   />
 ));
 
+/**
+ * MoreDropdown adds the dropdown to specific components and
+ * allows the user to edit and delete certain components.
+ * 
+ * Accetps handleEdit and handleDelete as props.
+ */
 export const MoreDropdown = ({ handleEdit, handleDelete }) => {
   return (
     <Dropdown className="ml-auto" drop="left">
@@ -42,6 +48,10 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
   );
 };
 
+/**
+ * This function diplays the ProfileDropdown to the user
+ * and takes the profile ID as a parameter.
+ */
 export function ProfileEditDropdown({ id }) {
   const history = useHistory();
   return (
@@ -73,6 +83,10 @@ export function ProfileEditDropdown({ id }) {
   );
 }
 
+/**
+ * The specific dropdown for editing categories. This
+ * function takes the category ID as a parameter.
+ */
 export function CategoryEditDropdown({ id }) {
   const history = useHistory();
   return (

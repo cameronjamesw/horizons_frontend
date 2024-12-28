@@ -2,33 +2,44 @@ import React, { useState } from "react";
 
 import { Form, Alert, Button, Col, Row, Image, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import { setTokenTimestamp } from "../../utils/utils";
+import { useRedirect } from "../../hooks/useRedirect";
 
 import styles from "../../styles/SignInUpForm.module.css";
 import appStyles from "../../App.module.css";
 import SignInImg from "../../assets/SignInImg.webp"
 import axios from "axios";
 
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
-import { setTokenTimestamp } from "../../utils/utils";
-import { useRedirect } from "../../hooks/useRedirect";
-
-
+/**
+ * This function displays the signin form to the user.
+ */
 function SignInForm() {
+    // Sets the current user
     const setCurrentUser = useSetCurrentUser();
+
+    // Redirect logged in users to home page if they try to access this page
     useRedirect('loggedIn');
 
+    // Sets signin data
     const [signInData, setSignInData] = useState({
         username: "",
         password: ""
     });
 
+    // Destructure the signin data
     const { username, password } = signInData;
 
+    // Sets the errors
     const [errors, setErrors] = useState({});
 
     const history = useHistory();
 
+    /**
+     * This function handles change within the signin form
+     * Take the event as a parameter.
+     */
     const handleChange = (event) => {
         setSignInData({
             ...signInData,
@@ -36,6 +47,11 @@ function SignInForm() {
         });
     }
 
+    /**
+     * This function handles the submit of the signin form.
+     * Posts the data to the login endpoint and redirects the user
+     * to the relevent page. Form bounces if any fields are incorrect.
+     */
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {

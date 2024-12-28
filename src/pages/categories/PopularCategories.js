@@ -1,16 +1,26 @@
 import React from 'react'
 import { useCategoryContext, useSetCategoryContext } from '../../contexts/CategoryContext';
 import { Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+
+import { CategoryEditDropdown } from '../../components/MoreDropdown';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import appStyles from "../../App.module.css"
 import styles from "../../styles/PopularCategories.module.css"
 import Asset from '../../components/Asset';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-import { CategoryEditDropdown } from '../../components/MoreDropdown';
-import { useCurrentUser } from '../../contexts/CurrentUserContext';
 
+/**
+ * This function displays the popular categories
+ * to the user. Takes mobile as a prop.
+ */
 const PopularCategories = ({ mobile }) => {
+    // Calls categoryContext hook to retrieve current categories
     const { popularCategories } = useCategoryContext();
+
+    // Calls the useSetCategory hook to update the current categories
     const setCategory = useSetCategoryContext();
+
+    // Gets the current user
     const currentUser = useCurrentUser();
 
     return (

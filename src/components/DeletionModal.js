@@ -2,11 +2,26 @@ import { useState } from "react";
 import { Button, Dropdown, Modal } from "react-bootstrap";
 import styles from "../styles/MoreDropdown.module.css"
 
+/**
+ *  DeletionModal will show upon being called, confirming
+ * if the user wants to delete the data clicked. Accetps props
+ * of handleDelete and dropDown
+ */
 function DeletionModal(props) {
+    // State of the modal, default is false
     const [show, setShow] = useState(false);
+
+    // Destructure the props
     const { handleDelete, dropDown } = props
 
+    /**
+     *  This function closes the modal
+     */
     const handleClose = () => setShow(false);
+
+    /**
+     * This function opens the modal
+     */
     const handleShow = () => setShow(true);
 
     return (

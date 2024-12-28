@@ -1,27 +1,39 @@
 import React, { useEffect, useState } from "react";
-
 import {Alert, Button, Container, Row, Col, Form} from "react-bootstrap";
 
 import { useHistory, useParams } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-
 import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
+/**
+ * Renders the userPasswordForm
+ */
 const UserPasswordForm = () => {
   const history = useHistory();
+
+  //Gets user ID from URL
   const { id } = useParams();
+
+  // Gets currentUser from useCurrentUser hook
   const currentUser = useCurrentUser();
 
+  // Sets userData
   const [userData, setUserData] = useState({
     new_password1: "",
     new_password2: "",
   });
+
+  // Destructures user data
   const { new_password1, new_password2 } = userData;
 
+  // Sets errors
   const [errors, setErrors] = useState({});
 
+  /**
+   * Handles change of the userPasswordForm
+   */
   const handleChange = (event) => {
     setUserData({
       ...userData,
@@ -36,6 +48,10 @@ const UserPasswordForm = () => {
     }
   }, [currentUser, history, id]);
 
+  /**
+   * Handles submission of the userPasswordForm and posts
+   * data to the relevent endpoint
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
