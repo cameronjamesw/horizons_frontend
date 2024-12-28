@@ -557,6 +557,16 @@ A number of components were created and re-used to minimise code duplication.
 
 ### CRUD Functionality
 
+Horizons features full Create, Read, Update and Delete functionality, via the UI implemented in React and the Horizons-Backend API.
+
+- **Create** - Authenticated users can create posts as well as create comments relating to said posts. Users will also be able to create like and favourite instances by performing the respective actions on posts. Admin users have the aforementioned post and comment creation functionality, but they can also create categories on top of this.
+
+- **Retrieve** - Any user, regardless of authenticated status, will be able to retrieve data surrounding posts, comments and categories. Unauthenticated users will also be able to retrieve profile data of users. Authenticated users will be able to retrieve their favourited posts data through accessing their own profile page.
+
+- **Update** - Authenticated users will be able to update their own posts and comments, as well as update their own profile page if they choose to do so. This right is reserved for authenticated users only for obvious reasons. Admin users have the permission to update categories too - again this permission is reserved for the role of an admin.
+
+- **Delete** - Authenticated users will be able to delete their own posts and comments - providing they are the owner of the respective data. Admin users will have the permission to delete categories too. Furthermore, admin users have the permission to delete another user's post in the view of safeguarding if they feel it is neccessary, regardless of whether they are the post owner or not.
+
 ### Future improvements and features
 
 ## Frameworks, Libraries & Dependencies
