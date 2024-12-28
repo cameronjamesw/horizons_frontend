@@ -34,6 +34,8 @@ Prior to developing Horizons, I had 3 major goals in mind that I wanted to achie
     + [Popular Profiles](#view-popular-profiles)
     + [Popular Categories](#view-popular-categories)
     + [Create Category](#create-category)
+    + [Edit Category](#edit-category)
+    + [Delete Category](#delete-category)
     + [Create Post](#create-post)
     + [View Post](#view-post)
     + [Like Post](#liking-a-post)
@@ -260,6 +262,28 @@ Admin users will be able to access the create category form. Here admn users can
 Validation methods are in place to check whether the category exists prior to submission, and the length of the category name - rejecting if it is larger than 20 characters.
 
 Upon creating a category, users will be able to add their posts to the newly created category, and they will also be able to use the category as a search parameter in the post feed page.
+
+### Edit Category
+
+![Screenshot of the edit category dropdown](/src/assets/readme_assets/features_images/edti-category-dropdown.png)
+
+Above is an image of an admin user clicking the edit category dropdown. This feature is reserved for admin users only - as shown above.
+
+![Screenshot of the edit category page](/src/assets/readme_assets/features_images/edit-category.png)
+
+Upon clicking the edit button from the category dropdown, the user is redirected to the edit category page. Upon rendering, the edit category form is pre-populated with the name of the category the admin user is trying to edit.
+
+This edit form has the same validation as the create category form, whereby a blank input will be rejected, and any categories who's name is greater than 20 characters will also be rejected.
+
+Upon submitting the edit category form, the name of the category is updated, and all the posts which house this category reflect this update too.
+
+### Delete Category
+
+![Screenshot of the delete category modal](/src/assets/readme_assets/features_images/delete-category.png)
+
+When attempting to delete a category, accessed through the edit category page, the user is greeted with the deletion confirmation modal. This ensures that if the admin user accidentally clicked delete, that the category will not be deleted unless the deletion is reinforced.
+
+The deletion modal will be closed if the admin user clicks anywhere on the page. apart from the delete button, which will of course delete the category.
 
 ### Create Post
 
