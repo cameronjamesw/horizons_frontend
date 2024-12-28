@@ -6,8 +6,10 @@ import styles from "../../styles/SignInUpForm.module.css";
 import appStyles from "../../App.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function CreateCategoryForm() {
+    useRedirect('loggedOut');
     const [categoryName, setCategoryName] = useState({
         name: ""
     });
@@ -42,6 +44,7 @@ function CreateCategoryForm() {
     }
 
     return (
+        
         <Row className={styles.Row}>
             <Col className="my-5 p-0 p-md-2" xs={10} lg={6}>
                 <Container className={`${appStyles.Content} p-4 `}>
