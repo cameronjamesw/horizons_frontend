@@ -44,6 +44,9 @@ Prior to developing Horizons, I had 3 major goals in mind that I wanted to achie
     + [Edit-Delete Dropdown](#edit--delete-post-dropdown)
     + [Edit Post](#edit-post)
     + [Delete Post](#delete-post)
+    + [View Comments](#view-comments)
+    + [Edit Comment](#edit-comment)
+    + [Delete Comment](#delete-comment)
     + [Follow & Unfollow Users](#followunfollow-a-user)
     + [View Profile](#view-profile)
     + [Update Profile](#update-profile)
@@ -383,6 +386,40 @@ When clicking the delete post option from the edit-delete dropdown, the user is 
 Clicking anywhere on the screen will close the modal without causing the post to be deleted, and then clicking on delete will then delete the post.
 
 This reassurance of decision ensures a positive user experience.
+
+### View Comments
+
+![Screenshot of viewing comments](/src/assets/readme_assets/features_images/view-comments.png)
+
+When viewing a post, users will be able to see a list of comments underneath the post.
+
+If there are no comments then the user will be encouraged to add their own if they are authenticated, other a "no comments yet" message will greet the user.
+
+When viewing comments, the user can see the `content` of the comment, the `comment owner`, and when the comment was `created_at`.
+
+### Edit Comment
+
+![A screenshot of editing a comment](/src/assets/readme_assets/features_images/edit-comment-user.png)
+
+When wanting to edit a comment, the comment user will be able to see a dropdown next to their comment that gives them the option to edit or delete their comment.
+
+When clicking delete, the user will be able to alter the comment within the edit comment form (see above).
+
+![A screenshot of an admin having access to the comment dropdown](/src/assets/readme_assets/features_images/edit-comment-admin.png)
+
+Admin users will be able to edit and delete comments in the view of safeguarding.
+
+In reference to the image above, an admin user is able to access the edit-delete comment dropdown despite not being the owner of the comment.
+
+### Delete Comment
+
+![A screenshot of the deletion modal when deleting a comment](/src/assets/readme_assets/features_images/delete-comment.png)
+
+When deleting a comment, the user is greeted with the comment deletion model. This ensures that any accidental clicks are avoided.
+
+When closing the modal the comment is not deleted.
+
+When clicking delete, the comment is deleted and the user is returned to the original psot page they were on.
 
 ### Follow/Unfollow A User
 
