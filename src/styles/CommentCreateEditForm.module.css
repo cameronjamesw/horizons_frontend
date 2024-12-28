@@ -12,8 +12,8 @@
   
   .Button {
     border: none;
-    background-color: #356933;
-    color: #fff;
+    background-color: #01C503;
+    color: #000;
     border-radius: 100px;
     padding: 4px 10px;
     min-width: 75px;
@@ -22,6 +22,6 @@
   
   .Button:hover {
     cursor: pointer;
-    background-color: #06402B;
+    background-color: #356933;
     color: #fff;
   }

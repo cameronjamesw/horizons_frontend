@@ -54,6 +54,7 @@ function CommentCreateForm(props) {
                     <Link to={`/profiles/${profile_id}`}>
                         <Avatar src={profileImage} />
                     </Link>
+                    <Form.Label className="d-none">Create Comment</Form.Label>
                     <Form.Control
                         className={styles.Form}
                         placeholder="my comment..."
@@ -70,7 +71,7 @@ function CommentCreateForm(props) {
                 </Alert>
             ))}
             <button
-                className={`${styles.Button} btn d-block ml-auto`}
+                className={`${styles.Button} d-block ml-auto`}
                 disabled={!content.trim()}
                 type="submit"
             >

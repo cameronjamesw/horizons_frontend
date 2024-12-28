@@ -37,6 +37,30 @@ Prior to developing Horizons, I had 3 major goals in mind that I wanted to achie
 
 - All JavaScript files, including `App.js` and `index.js` were ran through ESLint within the CLI. ESLint was installed, and upon running no errors were found in the code.
 
+### WAVE Web Accessiblity Testing
+
+Testing with the WAVE validation revealed the following issues:
+
+**Issues Fixed**
+
+- Contrast issues with links within the nav and popular categories components. Colour of the links was changed from `#356933` to `#01C503`. Issue fixed.
+
+- Avatar within the profile page component missing an ALT label. Issue fixed.
+
+- Heading tags skipping an element, altered H3 tags to H2 tags to deal with this. Issue fixed.
+
+- Low contrast errors within the comments component - colour chaged to fix this error.
+
+- Comments count link was throwing an error because it had no text inside - I removed the link attribute and fixed this error.
+
+**Unsolved Issues**
+
+- Avatar components have the same ALT text, this is throwing an alert within the WAVE Extension.
+
+- Broken same-page link within the Navbar component. A link to another location within the page is present but does not have a corresponding target. Removing the `to` element from the link in question breaks the page.
+
+- CreateCommetForm missing form control label - added label to fix this issue but the issue is still show despite label being added.
+
 ### Lighthouse Testing
 
 ### Resolved Bugs

@@ -41,6 +41,7 @@ function CommentEditForm(props) {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="pr-1">
+      <Form.Label className="d-none">Edit Comment</Form.Label>
         <Form.Control
           className={styles.Form}
           as="textarea"

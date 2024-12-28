@@ -112,7 +112,7 @@ function PostCreateForm() {
         ))}
 
         <Form.Group controlId="content">
-          <Form.Label>Content</Form.Label>
+          <Form.Label><label>Content</label></Form.Label>
           <Form.Control
             as="textarea"
             name="content"
@@ -130,16 +130,14 @@ function PostCreateForm() {
 
 
       <Button
-        className={`${btnStyles.Button}`}
+        className={`${btnStyles.Button} ${btnStyles.Green}`}
         onClick={() => history.goBack()}
-        variant="success"
       >
         cancel
       </Button>
       <Button
-        className={`${btnStyles.Button}`}
-        type="submit"
-        variant="success">
+        className={`${btnStyles.Button} ${btnStyles.Green}`}
+        type="submit">
         create
       </Button>
     </div>
