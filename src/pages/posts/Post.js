@@ -144,7 +144,7 @@ const Post = (props) => {
                     }
                     <div className='d-flex align-items-center'>
                         <span>{updated_at}</span>
-                        {is_owner | is_admin && postPage && (
+                        {(is_owner || is_admin) && postPage && (
                             <MoreDropdown
                                 handleEdit={handleEdit}
                                 handleDelete={handleDelete}
