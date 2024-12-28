@@ -102,7 +102,8 @@ function PostsPage({ message, filter = "" }) {
                 }))}>
                   <Link
                     to={`/categories/${categoryObj.id}/`}
-                    className={styles.Link}>
+                    className={styles.Link}
+                    key={categoryObj.id}>
                     {categoryObj.name}
                   </Link>
                 </Dropdown.Item>

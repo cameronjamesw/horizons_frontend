@@ -25,13 +25,14 @@ const PopularCategories = ({ mobile }) => {
                             <>
                             <div className={`${styles.BorderBottom} d-flex p-2`}>
                                 { currentUser?.is_admin ? (
-                                    <div><CategoryEditDropdown id={category.id}/></div>
+                                    <div><CategoryEditDropdown key={category.id} id={category.id}/></div>
                                 ) : (
                                     <></>
                                 )}
                                 <div><Link 
                                 to={`/categories/${category.id}/`} 
-                                className={styles.Link} key={category.id}
+                                className={styles.Link} 
+                                key={category.id}
                                 onClick={() => setCategory((prevState) => ({
                                     ...prevState,
                                     clickedCategory: { results: [category] },
