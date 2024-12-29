@@ -1,5 +1,3 @@
-nvm install 16 && nvm use 16
-
 # Horizons
 
 ![AmIResponsive Image](/src/assets/readme_assets/amiresponsive.png)
