@@ -583,6 +583,7 @@ The following fixes and improvements would be made in the short term as a high p
 - Add functionality so that no more than one comment edit form can be open at one time.
 - Remove edit functionality for admin users - they should only have permissions to delete content of users, not update it.
 - Add comment form feedback for users when submitting invalid data, there are currently no error alerts.
+- Add a feature to clear the searchbar and categories dropdown.
 
 #### Long Term Improvements
 Lower priority, longer term features to be added are:
