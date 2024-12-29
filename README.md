@@ -646,4 +646,24 @@ When deployment is complete, you will be given a link to the deployed site.
 
 ### Code
 
+- Code Institute's [Moment's Walkthrough](https://github.com/Code-Institute-Solutions/moments)
+
+- [React Documentation](https://react.dev/)
+
+- [She Codes](https://www.shecodes.io/athena/7184-how-to-use-the-map-method-in-react) - map method clarification
+
+- A [video](https://www.youtube.com/watch?v=aeQa9U0fLCI) created by Caleb Curry on their [YouTube Channel](https://www.youtube.com/@codebreakthrough)
+
 ### Media
+
+- This [Leaf Design](https://www.reddit.com/r/AnimalCrossing/comments/fjawfs/as_requested_here_is_a_high_resolution_version_of/?rdt=42497) was taken from Reddit and used in the wireframes
+
+- The [Default Leaf](https://commons.wikimedia.org/wiki/File:Animal_Crossing_Leaf.svg) Avatar image
+
+- The [Horizons Logo](https://www.deviantart.com/biochao/art/Animal-Crossing-Leaf-906601347) was found [here](https://www.deviantart.com/biochao/art/Animal-Crossing-Leaf-906601347)
+
+- [Sign In Photo](https://gamejolt.com/c/animalcrossing-ypbu6m?feed_last_id=%7B%22ver%22:%221%22,%22pos%22:%221695304588.162%22%7D) was downloaded from [here](https://gamejolt.com/c/animalcrossing-ypbu6m?feed_last_id=%7B%22ver%22:%221%22,%22pos%22:%221695304588.162%22%7D
+
+- [Sign Up Photo](https://www.reddit.com/r/AnimalCrossing/comments/osvccl/ive_been_doing_some_animal_crossing_fanart/?rdt=56036) was taken from [here](https://www.reddit.com/r/AnimalCrossing/comments/osvccl/ive_been_doing_some_animal_crossing_fanart/?rdt=56036)
+
+- The [No Results Image](https://www.deviantart.com/vgafanatic/art/Mr-Resetti-104615679) was downloaded from [here](https://www.deviantart.com/vgafanatic/art/Mr-Resetti-104615679)
