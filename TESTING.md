@@ -98,6 +98,9 @@ Prior to developing Horizons, I had 3 major goals in mind that I wanted to achie
 | 40 | Try to like own post | Unable to like post and met with notification | Unable to like post and met with notification stating cannot like own post | Yes |
 
 **Comments**
+
+| Test ID | Test Case | Expected Outcome | Actual Outcome | Pass |
+| --- | --- | --- | --- | --- |
 | 41 | Scroll down on post page to view comments | Comments are rendered underneath post | Comments are rendered underneath post | Yes |
 | 42 | Create comment | New comment is rendered upon submitting | New comment is rendered as expected | Yes |
 | 43 | Leave comment form blank | Comment is not submitted and error message displayed | Comment is not submitted but no error message is displayed | Fail - see bugs |
@@ -113,6 +116,8 @@ Prior to developing Horizons, I had 3 major goals in mind that I wanted to achie
 
 **Edit & Delete Post**
 
+| Test ID | Test Case | Expected Outcome | Actual Outcome | Pass |
+| --- | --- | --- | --- | --- |
 | 53 | Click on edit post in post dropdown | PostEditForm is rendered with pre-existing details rendered | Edit post form rendered accordingly | Yes |
 | 54 | Update post filling out form as intended | Form subitted with post being updated, post re-rendered with updated data | Form subitted with post being updated, post re-rendered with updated data | Yes |
 | 55 | Leave update fields blank | Form bounces, with relevent error shown | Form does not submit, fields may not be blank error shown | Yes |
