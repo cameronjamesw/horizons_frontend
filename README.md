@@ -610,6 +610,15 @@ Lower priority, longer term features to be added are:
 
 ### Custom Hooks
 
+- **useCurrentUser** - this hook gains the current user's authenticated status.
+- **useSetCurrentUser** - this hook allows the user's authenticated status to be updated anywhere in the application.
+
+- **useProfileData** - this hook allows the user's profile information to be accessed anywhere in the application.
+- **useSetProfileData** - this hook allows the user's profile information to be updated anywhere in the application.
+
+- **useCategoryContext** - this hook allows the application to access the current categories anywhere within the application. This hook allows the application to access both a `ClickedCategory` as well as a list of `PopularCategories`.
+- **useSetCategoryContext** - this hook allows the application to update the current categories anywhere within the application. This hook allows the application to update both a `ClickedCategory` as well as updating a list of `PopularCategories`.
+
 ## Testing
 
 All testing for the `Horizons Frontend` can be found in the [TESTING.md](/TESTING.md) folder.
