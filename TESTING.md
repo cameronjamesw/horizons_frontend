@@ -125,7 +125,7 @@ Prior to developing Horizons, I had 3 major goals in mind that I wanted to achie
 | 57 | Upload image larger than 50Mb | Form bounces, with relevent error shown | Form does not submit, image size is too large error shown | Yes |
 | 58 | Leave category field blank | Form submits with category set to null | Form submits with the category being set to null | Yes |
 | 59 | Leave category field blank despite category already being assigned | Form submits with category being updated to null | Form submits with the category being updated to null | Yes |
-| 60 | Update category field | Select a category from the dropdown | Post is then assigned the category and appears in category searches, category name now appears on post too. | Post is then assigned the category and appears in category searches, category name now appears on post too. | Yes |
+| 60 | Update category field | Select a category from the dropdown | Post is then assigned the category and appears in category searches, category name now appears on post too. | Yes |
 | 61 | Click change image button | Allow the user to change the image | User gets the option to select a new image | Yes |
 | 62 | Click cancel button | User is returned to the previous page they were on | User is returned to previous page as expected | Yes |
 | 63 | Click edit on filled out form | Post updated | Post updated and re-rendered to user | Yes |
