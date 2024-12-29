@@ -157,6 +157,57 @@ Prior to developing Horizons, I had 3 major goals in mind that I wanted to achie
 | 79 | Navigate to /categories/:id/edit/ as a standard user | Redirected to home page | Redirected to home page | Yes |
 | 80 | Navigate to /categories/:id/edit/ as an unauthenticated user | Redirected to home page | Redirected to home page | Yes |
 
+**View Profile**
+
+| Test ID | Test Case | Expected Outcome | Actual Outcome | Pass |
+| --- | --- | --- | --- | --- |
+| 81 | Click on a user's profile | Relevent profile information rendered to the user | Relevent profile information rendered to the user. profile rendered is the profile clicked on along with the profile owner's posts | Yes |
+| 82 | Click on user with a default profile | Only limitied information in rendered to the user | The relevent information is rendered to the user | Yes |
+| 83 | Click on user with a completed profile | All relevent information is rendered to the user | All the relevent information is rendered to the user | Yes |
+| 84 | Click on other user's profile to see if favourites count appears | Favourites count should not be visible | Favourites count is not visible | Yes |
+| 85 | Click on own profile to see if favourites count appears | Favourites count should appear | Favourites count appears | Yes |
+| 86 | Click on favourites | User should be taken to a list of their favourite post | Favourite posts list rendered | Yes |
+| 87 | Favourite a post | Favourites count should be updated in real time | Favourites count is updated | Yes |
+| 88 | Unfavourite a post | Favourites count should be updated in real time | Favourites count is updated | Yes |
+| 89 | Follow a user | Follow button changes to unfollow, following and followers count increases accordingly, followed user's posts appear in feed | Follow button changes to unfollow, following and followers count increases accordingly, followed user's posts appear in feed | Yes |
+| 90 | Unfollow a user | Unfollow button changes to follow, following and followers count decreases accordingly, unfollowed user's posts no longer appear in feed | Unfollow button changes to follow, following and followers count decreases accordingly, unfollowed user's posts no longer appear in feedd | Yes |
+| 91 | Click on a user's post underneath their profile | Relevent post is rendered | Relevent post is rendered | Yes |
+| 92 | Click edit dropdown | Show edit profile, edit username, edit password options | Show edit profile, edit username, edit password options | Yes |
+| 93 | Click edit profile | Renders edit profile page with relevent fields prepopulated | Renders edit profile page with relevent fields prepopulated | Yes |
+| 94 | Click change  username | Renderschange  username page with relevent fields prepopulated | Renders change username page with relevent fields prepopulated | Yes |
+| 95 | Click change password | Renders change passowrd page with relevent fields prepopulated | Renders change password page with relevent fields prepopulated | Yes |
+| 96 | Try to edit another user's profile | Profile edit dropdown does not appear | Profile edit dropdown does not appear | Yes |
+| 97 | Navigate to /profiles/:id/edit/ of another user's profile | Re-directed to homepage | Re-directed to home page | Yes |
+
+
+**Edit Profile**
+
+| Test ID | Test Case | Expected Outcome | Actual Outcome | Pass |
+| --- | --- | --- | --- | --- |
+| 98 | Edit profile as intended | Profile updated with relevent information rendered, complete profile view rendered |  Profile updated with relevent information rendered, complete profile view rendered | Yes |
+| 99 | Leave all profile fields blank | Form bounces, with relevent error messages shown | Form bounces with relevent error messages shown | Yes |
+| 100 | Leave name, friendcode and bio fields blank | Form submits, no errors, profile reverts back to default view | Form submits, no errors, profile reverts back to default view | Yes |
+| 101 | Click cancel | User returned to their profile | User returned to their profile | Yes |
+| 102 | Upload image larger than 50Mb | Form bounces, with relevent error shown | Form does not submit, image size is too large error shown | Yes |
+
+**Change Username**
+
+| Test ID | Test Case | Expected Outcome | Actual Outcome | Pass |
+| --- | --- | --- | --- | --- |
+| 103 | Click cancel | User returned to profile page | User returned to profile page | Yes |
+| 104 | Change Username as intended | Username is changed, user redirected to profile page | Username is changed, user redirected to profile page | Yes |
+| 105 | Try to change username to an already existing username | Form bounces, with relevent error | Form bounces, a user with that username already exists error is shown | Yes |
+| 106 | Leave field blank | Form bounces with relevent error | Form bounces, this field may not be blank | Yes |
+
+**Change Password**
+
+| Test ID | Test Case | Expected Outcome | Actual Outcome | Pass |
+| --- | --- | --- | --- | --- |
+| 107 | Leave field blank | Form bounces with relevent error | Form bounces, this field may not be blank | Yes |
+| 108 | Click cancel | User returned to profile page | User returned to profile page | Yes |
+| 109 | Change password as intended | Password is changed, user redirected to profile page | Password is changed, user redirected to profile page | Yes |
+| 110 | Enter two different values | Form bounces, relevent error shown | Form bounces, passwords do not match | Yes |
+| 111 | Enter password under 8 characters | Form bounces, relevent error shown | Form bounces, password must be at least 8 characters | Yes |
 
 
 ### Validator Testing
