@@ -133,8 +133,31 @@ Prior to developing Horizons, I had 3 major goals in mind that I wanted to achie
 | 65 | Access url path as user who isn't authenticated | User redirected to home page | User redirected to home page as expected | Yes |
 | 66 | Access url path as an admin user | EditPostForm renders as expected | EditPostForm renders as expected | Yes |
 | 67 | Update post as admin user, filling out form as intended | Form subitted with post being updated, post re-rendered with updated data | Form subitted with post being updated, post re-rendered with updated data | Yes |
-| 68 | Click delete post | Deletion model is shown to the user and post is deleted upon clicking delete | Deletion model is shown to the user and post is deleted upon clicking delete | Pass |
-| 69 | Click delete post as an admin of another user's post | Deletion model is shown to the user and post is deleted upon clicking delete | Deletion model is shown to the user and post is deleted upon clicking delete | Pass |
+| 68 | Click delete post | Deletion model is shown to the user and post is deleted upon clicking delete | Deletion model is shown to the user and post is deleted upon clicking delete | Yes |
+| 69 | Click delete post as an admin of another user's post | Deletion model is shown to the user and post is deleted upon clicking delete | Deletion model is shown to the user and post is deleted upon clicking delete | Yes |
+
+**Create Category**
+
+| Test ID | Test Case | Expected Outcome | Actual Outcome | Pass |
+| --- | --- | --- | --- | --- |
+| 70 | Create Category as admin | Successfully create category, with new category added to categories list | Successfully create category, with new category added to categories list as expected | Yes |
+| 71 | Leave field blank | Form bounces, relevent errors shown | Form bounces, this field cannot be blank error shown | Yes |
+| 72 | Add category with name longer than 20 characters | Form bounces with relevent error shown | Form bounces, field cannot be longer than 20 charatcers error shown | Yes |
+| 73 | Navigate to /categories/create/ as standard user, try to create category | Form does not submit | Form does not submit, category not created | Pass - see bugs also |
+| 74 | Navigate to /categories/create/ as an unauthenticated user | Redirected to home page | Redirected to home page | Yes |
+
+**Edit/Delete Category**
+
+| Test ID | Test Case | Expected Outcome | Actual Outcome | Pass |
+| --- | --- | --- | --- | --- |
+| 75 | Update category name as intended | Category name updated, reflected throughout application | Category name updated, reflected throughout application | Yes |
+| 76 | Leave field blank | Form bounces, relevent errors shown | Form bounces, this field cannot be blank error shown | Yes |
+| 77 | Update category to have name longer than 20 characters | Form bounces with relevent error shown | Form bounces, field cannot be longer than 20 charatcers error shown | Yes |
+| 78 | Delete Category | Deletion modal shown when clicking delete button, category deleted upon confirmation, all posts with said category now have their category set to null | Deletion modal shown when clicking delete button, category deleted upon confirmation, all posts with said category now have their category set to null | Yes |
+| 79 | Navigate to /categories/:id/edit/ as a standard user | Redirected to home page | Redirected to home page | Yes |
+| 80 | Navigate to /categories/:id/edit/ as an unauthenticated user | Redirected to home page | Redirected to home page | Yes |
+
+
 
 ### Validator Testing
 

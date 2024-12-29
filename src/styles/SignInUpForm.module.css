@@ -8,7 +8,7 @@
 
 .Input {
     background: #141414;
-    border: 1px solid #D7A17D;
+    border: 1px solid #C9A588;
     box-sizing: border-box;
     border-radius: 2px;
     color: #fff;
@@ -34,7 +34,7 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     padding-bottom: 20px;
-    color: #D7a17D;
+    color: #C9A588;
 }
 
 .Link {
@@ -42,7 +42,7 @@
     text-align: center;
     display: block;
     margin: auto;
-    color: #D7A17D;
+    color: #C9A588;
 }
 
 .Link:hover {
