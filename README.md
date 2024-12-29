@@ -662,7 +662,7 @@ When deployment is complete, you will be given a link to the deployed site.
 
 - The [Horizons Logo](https://www.deviantart.com/biochao/art/Animal-Crossing-Leaf-906601347) was found [here](https://www.deviantart.com/biochao/art/Animal-Crossing-Leaf-906601347)
 
-- [Sign In Photo](https://gamejolt.com/c/animalcrossing-ypbu6m?feed_last_id=%7B%22ver%22:%221%22,%22pos%22:%221695304588.162%22%7D) was downloaded from [here](https://gamejolt.com/c/animalcrossing-ypbu6m?feed_last_id=%7B%22ver%22:%221%22,%22pos%22:%221695304588.162%22%7D
+- [Sign In Photo](https://gamejolt.com/c/animalcrossing-ypbu6m?feed_last_id=%7B%22ver%22:%221%22,%22pos%22:%221695304588.162%22%7D) was downloaded from [here](https://gamejolt.com/c/animalcrossing-ypbu6m?feed_last_id=%7B%22ver%22:%221%22,%22pos%22:%221695304588.162%22%7D)
 
 - [Sign Up Photo](https://www.reddit.com/r/AnimalCrossing/comments/osvccl/ive_been_doing_some_animal_crossing_fanart/?rdt=56036) was taken from [here](https://www.reddit.com/r/AnimalCrossing/comments/osvccl/ive_been_doing_some_animal_crossing_fanart/?rdt=56036)
 
