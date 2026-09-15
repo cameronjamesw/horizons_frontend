@@ -5,7 +5,7 @@ import axios from "axios";
  */
 
 // Configuration for axios
-axios.defaults.baseURL = "https://horizons-backend-f18a65df29b3.herokuapp.com/";
+axios.defaults.baseURL = "https://horizons-backend.onrender.com";
 axios.defaults.headers.post["Content-Type"] = "multipart/form-data";
 axios.defaults.withCredentials = true;
 
